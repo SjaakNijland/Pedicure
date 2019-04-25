@@ -1,2 +1,0 @@
-RewriteEngine On 
-rewriteRule ^([A-Za-z0-9-]+)/?$ index.php?action=$1 [L,NC,QSA]
