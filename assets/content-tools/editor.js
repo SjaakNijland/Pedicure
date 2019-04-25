@@ -2,7 +2,8 @@ window.addEventListener('load', function() {
     var editor;
 
     ContentTools.StylePalette.add([
-      new ContentTools.Style('Author', 'author', ['p'])
+      new ContentTools.Style('Author', 'author', ['p']),
+      new ContentTools.Style('Lees Meer', 'read-more-link', ['p'])
     ]);
 
     editor = ContentTools.EditorApp.get();

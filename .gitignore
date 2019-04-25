@@ -1,5 +1,3 @@
-
 includes/config.php
-
 assets/ct-uploads/*
 !assets/ct-uploads/.gitkeep

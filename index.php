@@ -22,6 +22,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
 require_once "views/static/head.php";
+require_once "views/static/header.php";
 if(file_exists('views/'. $action . '.php')){
     include_once 'views/'. $action . '.php';
 } else {
