@@ -39,6 +39,22 @@ window.addEventListener('load', function() {
     // tools.splice(2,1);
     // editor.toolbox().tools(tools);
 
+    ContentEdit.Root.get().bind('focus', function(element) {
+        var name = element._domElement.parentElement.getAttribute('data-name');
+
+        xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', function(result){
+            if (parseInt(result.target.status) == 200) {
+
+                console.log(result.target.responseText);
+            }
+        });
+        xhr.open('GET', 'model/ct-backup.php?name='+name, true);
+        xhr.send();
+
+    });
+
+
     editor.addEventListener('saved', function (ev) {
         var name, payload, regions, xhr;
 
