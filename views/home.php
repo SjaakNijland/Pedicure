@@ -13,10 +13,6 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
 
 array_unshift($content, "");
 
-
-echo "<pre>";
-//var_dump(json_encode($content));
-echo "</pre>";
 ?>
 <!--<select style="z-index: 3000000">-->
 <!--    <option value="volvo">Volvo</option>-->
@@ -46,11 +42,11 @@ echo "</pre>";
     <div class="home-about">
         <div class="inner">
             <div class="title" data-editable data-name="content[1]">
-                <!--            Wie is Pedicure Praktijk Sol-->
+                <!-- Wie is Pedicure Praktijk Sol-->
                 <?php echo $content[1]['body'] ?>
             </div>
             <div class="secondary-title" data-editable data-name="content[2]">
-                <!--                Wat bied ik aan-->
+                <!-- Wat bied ik aan-->
                 <?php echo $content[2]['body'] ?>
             </div>
             <div data-editable data-name="content[3]">
