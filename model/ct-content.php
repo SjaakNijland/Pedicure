@@ -10,18 +10,18 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($account->checkLoggedIn()){
     foreach ($_POST['content'] as $key => $value) {
 
-//        echo $value;
+        echo $value;
 
         //Clear all empty P tags
-        $valueFullTags = preg_replace("/<p[^>]*>[\s|&nbsp;]*<\/p>/", '', $value);
-
-        $valueBody = preg_replace("/<p>\\s*<p>/", "<p>" , $valueFullTags);
-        $valueBody = trim(preg_replace("/<\/p>\\s*<\/p>/", "</p>" , $valueBody));
-
-        echo $valueBody . "\n\n";
+//        $valueFullTags = preg_replace("/<p[^>]*>[\s|&nbsp;]*<\/p>/", '', $value);
+//
+//        $valueBody = preg_replace("/<p>\\s*<p>/", "<p>" , $valueFullTags);
+//        $valueBody = trim(preg_replace("/<\/p>\\s*<\/p>/", "</p>" , $valueBody));
+//
+//        echo $valueBody . "\n\n";
 
         $stmt = $pdo->prepare("SELECT * FROM content_body WHERE body = ? AND content_id = ?");
-        $stmt->execute([$valueBody, $key]);
+        $stmt->execute([$value, $key]);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //        var_dump($result);
@@ -36,7 +36,7 @@ if ($account->checkLoggedIn()){
         } else{
             echo "\nNew body added\n";
 
-            $pdo->prepare("INSERT INTO content_body (body, content_id) VALUES (?, ?) ")->execute([$valueBody, $key]);
+            $pdo->prepare("INSERT INTO content_body (body, content_id) VALUES (?, ?) ")->execute([$value, $key]);
             $pdo->prepare("UPDATE content SET body_id = ? WHERE `id` = ?")->execute([$pdo->lastInsertId(), $key]);
         }
 

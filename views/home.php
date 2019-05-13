@@ -42,7 +42,10 @@ array_unshift($content, "");
         <div class="inner">
             <div class="title" data-editable data-name="content[1]">
                 <!--            Wie is Pedicure Praktijk Sol-->
-                <?php echo $content[1]['body'] ?>
+                <?php
+                echo $content[1]['body'];
+
+                ?>
             </div>
             <div class="secondary-title" data-editable data-name="content[2]">
                 <?php echo $content[2]['body'] ?>
@@ -62,7 +65,10 @@ array_unshift($content, "");
             <div class="about-color-text" data-editable data-name="content[4]">
                 <?php echo $content[4]['body'] ?>
             </div>
-<!--            <p class="about-color-text">-->
+            <div data-editable data-name="content[5]">
+                <?php echo $content[5]['body'] ?>
+            </div>
+            <!--            <p class="about-color-text">-->
 <!--                Iedere klant wordt met de grootste aandacht behandeld en krijgt eeb voet verzorging advies mee naar huis.</p>-->
             <div class="about-image">
                 <img src="img/Joke.png" alt="Joke Sol">
@@ -89,44 +95,6 @@ array_unshift($content, "");
     <h2>Backup</h2>
     <p id="ez"></p>
     <select id="backup"></select>
+    <a href="#" id="backupEdit">Edit</a>
+    <a href="home">Clear</a>
 </div>
-
-<?php
-echo "<br><br><br><br><br><br><br><br><hr>";
-$string = '<p>
-
-</p>
-<img alt="177624" class="align-right" height="154" src="assets/ct-uploads/141f7ec3dd0a25827f5a7397c81f32f8.jpg" width="247">
-<p>
-    twee honderd iq indy gap holy molyweq wqe
-</p>
-<p>
-
-</p>
-<p>
-    wqeq eQW
-</p>
-<img alt="2941764 lfs13" height="480" src="assets/ct-uploads/1fda7e9879e64b0ffaf1cd138b4938e1.png" width="480">
-<h1>
-    HOI
-</h1>
-<p>
-    EZZ
-</p>';
-//echo $string;
-//var_dump(htmlspecialchars($string));
-//$string2 = preg_replace('/\s+/', '', $string);
-//var_dump(htmlspecialchars($string2));
-//var_dump(simplexml_load_string($string));
-
-$dom = new DOMDocument;
-$dom->loadHTML($string);
-foreach($dom->getElementsByTagName('*') as $node)
-{
-//   echo "ez<br>";
-    $array[] = htmlspecialchars($dom->saveHTML($node));
-}
-
-//print("<pre>".print_r($array,true)."</pre>");
-
-?>
