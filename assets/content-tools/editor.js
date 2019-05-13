@@ -39,29 +39,84 @@ window.addEventListener('load', function() {
     // tools.splice(2,1);
     // editor.toolbox().tools(tools);
 
-    ContentEdit.Root.get().bind('focus', function(element) {
-        var name = element._domElement.parentElement.getAttribute('data-name');
+    //ContentEdit.Root.get().bind('focus', function(element) {
+    //    var name = element._domElement.parentElement.getAttribute('data-name');
+    //    var select = document.getElementById('backup');
+    //    select.length = 0;
+    //    select.removeEventListener("change", changeData);
+    //
+    //    xhr = new XMLHttpRequest();
+    //    xhr.addEventListener('load', function(result){
+    //        if (parseInt(result.target.status) == 200) {
+    //
+    //            //console.log(result.target.responseText);
+    //            var data = JSON.parse(result.target.responseText);
+    //
+    //            for (var i = 0; i < data.length; i++){
+    //                select.insertAdjacentHTML('beforeend', '<option value="' + data[i].date + '">' + data[i].date + '</option>');
+    //            }
+    //
+    //            select.element = element;
+    //            select.data = data;
+    //            select.addEventListener("change", changeData);
+    //        }
+    //    });
+    //    xhr.open('GET', 'model/ct-backup.php?name='+name, true);
+    //    xhr.send();
+    //
+    //    function changeData(e){
+    //        //console.log(e.target.data[e.target.options[e.target.selectedIndex].index].body);
+    //        var data = e.target.data[e.target.options[e.target.selectedIndex].index];
+    //
+    //        console.log(e.target.element);
+    //        //console.log(e.target.element.domElement().parentElement);
+    //        console.log(e.target.element.domElement().parentElement.innerHTML);
+    //        console.log(e.target.element.parent());
+    //        console.log(e.target.element.parent().children[0]);
+    //        //e.target.element.parent().removeChild(e.target.element.parent().firstChild);
+    //
+    //        console.log(data.body);
+    //
+    //        //var all = data.body.getElementsByTagName("*");
+    //        //
+    //        //console.log(all);
+    //        //
+    //        //for (var i=0, max=all.length; i < max; i++) {
+    //        //    // Do something with the element here
+    //        //    console.log(all[i]);
+    //        //}
+    //
+    //
+    //        //e.target.element.domElement().innerHTML = '';
+    //        //e.target.element.domElement().innerHTML += data.body;
+    //        //e.target.element.domElement().parentElement.innerHTML = '';
+    //        e.target.element.domElement().parentElement.innerHTML = data.body;
+    //
+    //        //console.log(data.body.replace("<p", "<p class='ce-element'"));
+    //
+    //
+    //
+    //            //e.target.element.domElement().innerHTML;
+    //            //e.target.data[e.target.options[e.target.selectedIndex].index].body;
+    //    }
+    //});
 
-        xhr = new XMLHttpRequest();
-        xhr.addEventListener('load', function(result){
-            if (parseInt(result.target.status) == 200) {
+    //ContentEdit.Root.get().bind('unmount', function (element) {
+    //    console.log(element, 'just got added');
+    //});
 
-                console.log(result.target.responseText);
-            }
-        });
-        xhr.open('GET', 'model/ct-backup.php?name='+name, true);
-        xhr.send();
-
-    });
-
+    //console.log(editor);
 
     editor.addEventListener('saved', function (ev) {
         var name, payload, regions, xhr;
-
+        //console.log(ev);
         // Check that something changed
         regions = ev.detail().regions;
+        //console.log(editor.regions());
+        //console.log(regions);
 
         if (Object.keys(regions).length == 0) {
+            console.log('ez');
             return;
         }
 
@@ -71,8 +126,16 @@ window.addEventListener('load', function() {
         // Collect the contents of each region into a FormData instance
         payload = new FormData();
         for (name in regions) {
+            //console.log(name);
+            //console.log(regions[name]);
             if (regions.hasOwnProperty(name)) {
+                //console.log(name);
+                console.log(regions[name]);
+                //console.log((name, regions[name]));
+
                 payload.append(name, regions[name]);
+            } else {
+                console.log('Nope');
             }
         }
 
@@ -81,9 +144,9 @@ window.addEventListener('load', function() {
             // Check if the request is finished
             if (ev.target.readyState == 4) {
                 editor.busy(false);
-                if (ev.target.status == '200') {
+                if (ev.target.status == '200' && ev.target.readyState == 4) {
                     // Save was successful, notify the user with a flash
-                    //console.log(ev.target.response);
+                    console.log(ev.target.response);
                     new ContentTools.FlashUI('ok');
                 } else {
                     // Save failed, notify the user with a flash
