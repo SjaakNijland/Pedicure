@@ -14,16 +14,11 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
 array_unshift($content, "");
 
 
-echo "<pre>";
+//echo "<pre>";
 //var_dump(json_encode($content));
-echo "</pre>";
+//echo "</pre>";
 ?>
-<!--<select style="z-index: 3000000">-->
-<!--    <option value="volvo">Volvo</option>-->
-<!--    <option value="saab">Saab</option>-->
-<!--    <option value="mercedes">Mercedes</option>-->
-<!--    <option value="audi">Audi</option>-->
-<!--</select>-->
+
 
 <div class="container">
     <div class="banner">
@@ -50,7 +45,6 @@ echo "</pre>";
                 <?php echo $content[1]['body'] ?>
             </div>
             <div class="secondary-title" data-editable data-name="content[2]">
-                <!--                Wat bied ik aan-->
                 <?php echo $content[2]['body'] ?>
             </div>
             <div data-editable data-name="content[3]">
@@ -91,3 +85,48 @@ echo "</pre>";
 <!--JOIN content_body ON content_body.id = content.body_id-->
 <!--WHERE content.name LIKE 'home%')-->
 <!--END FROM content-->
+<div style="position:fixed; top:0; right:0; background-color: green; padding: 5px;">
+    <h2>Backup</h2>
+    <p id="ez"></p>
+    <select id="backup"></select>
+</div>
+
+<?php
+echo "<br><br><br><br><br><br><br><br><hr>";
+$string = '<p>
+
+</p>
+<img alt="177624" class="align-right" height="154" src="assets/ct-uploads/141f7ec3dd0a25827f5a7397c81f32f8.jpg" width="247">
+<p>
+    twee honderd iq indy gap holy molyweq wqe
+</p>
+<p>
+
+</p>
+<p>
+    wqeq eQW
+</p>
+<img alt="2941764 lfs13" height="480" src="assets/ct-uploads/1fda7e9879e64b0ffaf1cd138b4938e1.png" width="480">
+<h1>
+    HOI
+</h1>
+<p>
+    EZZ
+</p>';
+//echo $string;
+//var_dump(htmlspecialchars($string));
+//$string2 = preg_replace('/\s+/', '', $string);
+//var_dump(htmlspecialchars($string2));
+//var_dump(simplexml_load_string($string));
+
+$dom = new DOMDocument;
+$dom->loadHTML($string);
+foreach($dom->getElementsByTagName('*') as $node)
+{
+//   echo "ez<br>";
+    $array[] = htmlspecialchars($dom->saveHTML($node));
+}
+
+//print("<pre>".print_r($array,true)."</pre>");
+
+?>
