@@ -50,6 +50,9 @@ window.addEventListener('load', function() {
 
                 function changeData(e){
                     console.log(e);
+                    console.log(e.target[e.target.options[e.target.selectedIndex].index]);
+                    console.log(e.target[e.target.options[e.target.selectedIndex].index].value);
+
 
                 }
 
