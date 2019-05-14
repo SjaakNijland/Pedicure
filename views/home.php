@@ -10,6 +10,8 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
 //    (content_body.date < p2.date OR content_body.date = p2.date AND content_body.id < p2.id))
 //WHERE p2.id IS NULL AND content.name LIKE 'home%')")->fetchAll(PDO::FETCH_ASSOC);
 array_unshift($content, "");
+
+
 ?>
 <!--<select style="z-index: 3000000">-->
 <!--    <option value="volvo">Volvo</option>-->
@@ -149,5 +151,3 @@ array_unshift($content, "");
 <!--JOIN content_body ON content_body.id = content.body_id-->
 <!--WHERE content.name LIKE 'home%')-->
 <!--END FROM content-->
-
-<!-- <div style="position:fixed; top:0; right:0; background-color: green; padding: 5px;"> <h2>Backup</h2> <p id="ez"></p> <select id="backup"></select> <a href="#" id="backupEdit">Edit</a> <a href="home">Clear</a> </div> -->
