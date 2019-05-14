@@ -99,9 +99,6 @@ array_unshift($content, "");
             <div class="inner">
                 <p class="testimonial-titel">Testimonials</p>
                 <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>
-                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>
-                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>
-                <p class="testimonial-name">Yenoah van Waard</p>
                 <p>Patiënt</p>
             </div>
         </div>
@@ -133,6 +130,9 @@ array_unshift($content, "");
             <img src="img/red-feet.jpg" alt="feet">
         </div>
     </div>
+    <div class="maps">
+        <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=nl&q=Spuistraat%20210%2C%201012%20VT%20Amsterdam%2C%20Netherlands+(Mijn%20bedrijfsnaam)&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/nl/maak-een-google-map/">Maak een Google Map</a> van <a href="https://www.mapsdirections.info/nl/">Nederland Kaart</a></iframe>
+    </div>
 </div>
 
 <!--SELECT content.*, CASE  WHEN content.body_id = NULL-->
@@ -150,4 +150,4 @@ array_unshift($content, "");
 <!--WHERE content.name LIKE 'home%')-->
 <!--END FROM content-->
 
-<div style="position:fixed; top:0; right:0; background-color: green; padding: 5px;"> <h2>Backup</h2> <p id="ez"></p> <select id="backup"></select> <a href="#" id="backupEdit">Edit</a> <a href="home">Clear</a> </div>
+<!-- <div style="position:fixed; top:0; right:0; background-color: green; padding: 5px;"> <h2>Backup</h2> <p id="ez"></p> <select id="backup"></select> <a href="#" id="backupEdit">Edit</a> <a href="home">Clear</a> </div> -->
