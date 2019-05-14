@@ -1,7 +1,6 @@
 window.addEventListener('load', function() {
-    var backup = document.getElementById("backupEdit");
-    console.log(backup);
-    backup.addEventListener("click", function(){
+
+    document.getElementById("backupEdit").addEventListener("click", function(){
         console.log("Edit started");
 
         var name = "home";
@@ -14,11 +13,13 @@ window.addEventListener('load', function() {
             }
         }
 
+        var selectedOld = [];
+
         xhr = new XMLHttpRequest();
         xhr.addEventListener('load', function(result){
             if (parseInt(result.target.status) == 200) {
                 var data = JSON.parse(result.target.responseText);
-                console.log(data);
+                //console.log(data);
 
                 var sorted = {};
 
@@ -34,32 +35,67 @@ window.addEventListener('load', function() {
                 for(var i = 0; i < divs.length; i++){
                     divs[i].style.border = "3px solid yellow";
 
-                    console.log(divs[i].getAttribute('data-name'));
                     var optionsDate = "";
 
-                    for (var j = 0; j < sorted[i+1].length; j++){
-                        optionsDate += '<option value="'+ sorted[i+1][j]['id'] +'">' + sorted[i+1][j]['date'] + '</option>';
+                    var backup = sorted[divs[i].getAttribute('data-name').replace(/[^0-9]*/g,'')];
+
+                    for (var j = 0; j < backup.length; j++) {
+                        if (divs[i].innerHTML.trim() == backup[j]['body']) {
+                            optionsDate += '<option class="backup-option" selected value="' + backup[j]['id'] + '">' + backup[j]['date'] + '</option>';
+                            selectedOld.push(backup[j]['id']);
+                        } else {
+                            optionsDate += '<option class="backup-option" value="' + backup[j]['id'] + '">' + backup[j]['date'] + '</option>';
+                        }
                     }
-                    divs[i].insertAdjacentHTML('afterend', '<select id="option['+(i+1)+']">' + optionsDate + '</select>');
 
-                    var select = document.getElementById("option["+(i+1)+"]");
-                    select.addEventListener("change", changeData);
+                    divs[i].insertAdjacentHTML('afterend', '<select id="option['+(backup[0]['content_id'])+']" class="selectBack">' + optionsDate + '</select>');
 
-                    //document.getElementById("option["+(i+1)+"]").addEventListener("change", changeData);
+                    document.getElementById("option["+(backup[0]['content_id'])+"]").addEventListener("change", changeData);
                 }
 
                 function changeData(e){
-                    console.log(e);
-                    console.log(e.target[e.target.options[e.target.selectedIndex].index]);
-                    console.log(e.target[e.target.options[e.target.selectedIndex].index].value);
+                    //console.log(e);
+                    //console.log(e.target[e.target.options[e.target.selectedIndex].index]);
+                    //console.log("Target id: " + e.target.id);
+                    //console.log("Value: " + e.target[e.target.options[e.target.selectedIndex].index].value);
 
+                    var div_id = e.target.id.replace(/[^0-9]*/g,'');
 
+                    e.target.previousSibling.innerHTML = sorted[div_id][e.target.selectedIndex]['body'];
                 }
 
             }
         });
         xhr.open('GET', 'model/ct-backup.php?name='+name, true);
         xhr.send();
-    });
 
+
+        document.getElementById("backupSave").addEventListener("click", function () {
+            console.log("Saved");
+
+            var selects = document.getElementsByClassName("selectBack");
+
+            var updatedBackups = {};
+
+            for (var i = 0; i < selects.length;i++){
+                if(selects[i].value != selectedOld[i]){
+                    updatedBackups[selects[i].id.replace(/[^0-9]*/g,'')] = selects[i].value;
+                }
+            }
+
+            console.log(updatedBackups);
+
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener('load', function(result){
+                if (parseInt(result.target.status) == 200) {
+                    console.log(result.target.responseText)
+                }
+            });
+
+            xhr.open("POST", "model/ct-backup.php");
+            //xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("updatedBackups=" + JSON.stringify(updatedBackups));
+        });
+    });
 });

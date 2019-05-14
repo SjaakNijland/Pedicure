@@ -10,21 +10,9 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($account->checkLoggedIn()){
     foreach ($_POST['content'] as $key => $value) {
 
-        echo $value;
-
-        //Clear all empty P tags
-//        $valueFullTags = preg_replace("/<p[^>]*>[\s|&nbsp;]*<\/p>/", '', $value);
-//
-//        $valueBody = preg_replace("/<p>\\s*<p>/", "<p>" , $valueFullTags);
-//        $valueBody = trim(preg_replace("/<\/p>\\s*<\/p>/", "</p>" , $valueBody));
-//
-//        echo $valueBody . "\n\n";
-
         $stmt = $pdo->prepare("SELECT * FROM content_body WHERE body = ? AND content_id = ?");
         $stmt->execute([$value, $key]);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-//        var_dump($result);
 
         if(count($result) == 1){
             //Backup found
