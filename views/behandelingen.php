@@ -5,7 +5,7 @@
 
     <div class="inner">
         <div class="wrapper">
-            <button class="accordion">Section 1</button>
+            <button class="accordion">Behandeling met intake (90 minuten)</button>
             <div class="panel">
                 <h2>Algehele voetzorging</h2>
                 <hr>
@@ -15,12 +15,12 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipismod a aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
-            <button class="accordion">Section 2</button>
+            <button class="accordion">Specialistische technieken</button>
             <div class="panel">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
-            <button class="accordion">Section 3</button>
+            <button class="accordion">Nagels</button>
             <div class="panel">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
