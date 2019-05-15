@@ -10,22 +10,33 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($account->checkLoggedIn()){
     foreach ($_POST['content'] as $key => $value) {
 
-        $stmt = $pdo->prepare("SELECT * FROM content_body WHERE body = ? AND content_id = ?");
-        $stmt->execute([$value, $key]);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $pdo->prepare("SELECT * FROM content_body WHERE content_id = ?");
+        $stmt->execute([$key]);
+        $result2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(count($result2) == 1){
+            echo "\nZelfde row geupdate\n";
+            $pdo->prepare("UPDATE content_body SET body = ? WHERE content_id = ?")->execute([$value, $key]);
+        } else {
 
-        if(count($result) == 1){
-            //Backup found
-            echo "\nBackup found\n";
-            echo $result[0]['id'];
+            $stmt = $pdo->prepare("SELECT * FROM content_body WHERE body = ? AND content_id = ?");
+            $stmt->execute([$value, $key]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            $pdo->prepare("UPDATE content SET body_id = ? WHERE `id` = ?")->execute([$result[0]['id'], $key]);
+            if (count($result) == 1) {
+                //Backup found
+                echo "\nBackup found\n";
+                echo $result[0]['id'];
 
-        } else{
-            echo "\nNew body added\n";
+                $pdo->prepare("UPDATE content SET body_id = ? WHERE `id` = ?")->execute([$result[0]['id'], $key]);
 
-            $pdo->prepare("INSERT INTO content_body (body, content_id) VALUES (?, ?) ")->execute([$value, $key]);
-            $pdo->prepare("UPDATE content SET body_id = ? WHERE `id` = ?")->execute([$pdo->lastInsertId(), $key]);
+            } else {
+
+                echo "\nNew body added\n";
+
+                $pdo->prepare("INSERT INTO content_body (body, content_id) VALUES (?, ?) ")->execute([$value, $key]);
+                $pdo->prepare("UPDATE content SET body_id = ? WHERE `id` = ?")->execute([$pdo->lastInsertId(), $key]);
+            }
+
         }
 
     }
