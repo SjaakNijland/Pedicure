@@ -14,3 +14,16 @@ $(document).ready(function(){
         }
     });
 });
+
+var nav = document.getElementsById('nav');
+
+window.onscroll = function(){
+    if (window.pageYOffset >100) {
+    nav.style.background = "#ffffff";
+    nav.style.boxShadow = "0px 0px 30px 0px #cdcdcd";
+  }
+  else {
+      nav.style.background = "transparent";
+      nav.style.boxShadow = "none";
+  }
+}
