@@ -34,7 +34,7 @@ footer{
 	width: 100%;
 	text-align: left;
 	font: bold 16px Montserrat, sans-serif;
-	padding: 50px 50px 60px 50px;
+	padding: 50px 200px 60px 250px;
 }
 
 .footer-distributed .footer-left,
@@ -48,6 +48,7 @@ footer{
 
 .footer-distributed .footer-left{
 	width: 30%;
+	margin-right: 12%;
 }
 
 .footer-distributed h3{
@@ -98,14 +99,9 @@ h5 {
 	margin: 0;
 }
 
-/* Footer Center */
+/* Footer right */
 
-.footer-distributed .footer-center{
-	width: 35%;
-}
-
-
-.footer-distributed .footer-center i{
+.footer-distributed .footer-right i{
 	background-color:  #33383b;
 	color: #ffffff;
 	font-size: 25px;
@@ -114,42 +110,43 @@ h5 {
 	border-radius: 50%;
 	text-align: center;
 	line-height: 42px;
-	margin: 10px 15px;
+	margin: 10px 15px 10px 0px;
 	vertical-align: middle;
 }
 
-.footer-distributed .footer-center i.fa-envelope{
+.footer-distributed .footer-right i.fa-envelope{
 	font-size: 17px;
 	line-height: 38px;
 }
 
-.footer-distributed .footer-center p{
+.footer-distributed .footer-right p{
 	display: inline-block;
 	color: #ffffff;
 	vertical-align: middle;
 	margin:0;
 }
 
-.footer-distributed .footer-center p span{
+.footer-distributed .footer-right p span{
 	display:block;
 	font-weight: normal;
 	font-size:14px;
 	line-height:2;
 }
 
-.footer-distributed .footer-center p a{
+.footer-distributed .footer-right p a{
 	color:  #fff;
 	text-decoration: none;;
 }
 
-.footer-distributed .footer-center p a:hover{
+.footer-distributed .footer-right p a:hover{
 	color:  #5ABEAF;
 	text-decoration: none;;
 }
-/* Footer Right */
+/* Footer center */
 
-.footer-distributed .footer-right{
-	width: 30%;
+.footer-distributed .footer-center {
+	width: 10%;
+	margin-right: 13%;
 }
 
 .footer-distributed .footer-company-about{
@@ -172,7 +169,7 @@ h5 {
 	color: #5ABEAF;
 	text-decoration: none;
 	line-height: 30px;
-
+	margin-left: -20px;
 }
 
 ul li p a {
@@ -193,11 +190,26 @@ ul li p a:hover {
 		display: block;
 		width: 100%;
 		margin-bottom: 40px;
-		text-align: center;
+		text-align: left;
 	}
 
 	.footer-distributed .footer-center i{
 		margin-left: 0;
 	}
 
+	.footer-distributed{
+		padding: 10% ;
+	}
+
+}
+
+.copyright-footer {
+		margin-top: -50px;
+		bottom: fixed;
+		height:50px;
+		background-color: #686868;
+
+		p {
+				padding: 15px 0;
+		}
 }
