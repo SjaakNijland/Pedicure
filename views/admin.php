@@ -17,9 +17,39 @@ if(LOGGED_IN){
 <!--    </form>-->
 
     <?php
-    $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.id=content.body_id")->fetchAll(PDO::FETCH_ASSOC);
+    $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.id=content.body_id WHERE name LIKE 'home%'")->fetchAll(PDO::FETCH_ASSOC);
+    array_unshift($content, "");
+    ?>
+<div class="home-testimonials">
+    <div class="slide1">
+        <div class="inner">
+            <div data-editable data-name="content[6]">
+                <?php echo $content[6]['body']; ?>
+<!--                <p class="testimonial-titel">Testimonials</p>-->
+<!--                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
+<!--                <p>Patiënt</p>-->
+            </div>
+        </div>
+    </div>
+    <div class="slide2">
+        <div class="inner" data-editable data-name="content[7]">
+            <?php echo $content[7]['body']; ?>
+<!--            <p class="testimonial-titel">Testimonials2</p>-->
+<!--            <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
+<!--            <p class="testimonial-name">Yenoah van Waard</p>-->
+<!--            <p>Patiënt</p>-->
+        </div>
+    </div>
+    <div class="slide3">
+        <div class="inner" data-editable data-name="content[8]">
+            <?php echo $content[8]['body']; ?>
+<!--            <p class="testimonial-titel">Testimonials3</p>-->
+<!--            <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
+<!--            <p class="testimonial-name">Yenoah van Waard</p>-->
+<!--            <p>Patiënt</p>-->
+        </div>
+    </div>
+</div>
 
-    for($i = 0; $i < count($content); $i++){
-        echo $content[$i]['content_id'] . "\n";
-    }
+<?php
 }

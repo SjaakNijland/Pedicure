@@ -3,7 +3,11 @@ window.addEventListener('load', function() {
 
     ContentTools.StylePalette.add([
       new ContentTools.Style('Author', 'author', ['p']),
-      new ContentTools.Style('Lees Meer', 'read-more-link', ['p'])
+      new ContentTools.Style('Lees Meer', 'read-more-link', ['p']),
+      new ContentTools.Style('Info Titel', 'info-title', ['p']),
+      new ContentTools.Style('Tweede Info Titel', 'sec-info-title', ['p']),
+      new ContentTools.Style('Tweede Info Titel', 'sec-info-title', ['p']),
+      new ContentTools.Style('Info', 'info', ['p'])
     ]);
 
     editor = ContentTools.EditorApp.get();
@@ -32,6 +36,19 @@ window.addEventListener('load', function() {
     xhr.send(null);
 
     editor.init('*[data-editable]', 'data-name');
+
+    editor.addEventListener('start', function () {
+        console.log('Content edit started');
+        document.getElementById("backupEdit").style.display = "none";
+        //console.log(document.getElementsByClassName("home-testimonials")[0]);
+        //document.getElementsByClassName("home-testimonials")[0].classList.remove("home-testimonials");
+    });
+    editor.addEventListener('stop', function () {
+        console.log('Content edit stopped');
+        document.getElementById("backupEdit").style.display = "block";
+    });
+
+
 
     //var imgControl = ContentTools
     // var tools = ContentTools.DEFAULT_TOOLS;
@@ -107,16 +124,18 @@ window.addEventListener('load', function() {
 
     //console.log(editor);
 
+
+
     editor.addEventListener('saved', function (ev) {
         var name, payload, regions, xhr;
-        //console.log(ev);
+        console.log(ev);
         // Check that something changed
         regions = ev.detail().regions;
         //console.log(editor.regions());
-        //console.log(regions);
+        console.log(regions);
 
         if (Object.keys(regions).length == 0) {
-            console.log('ez');
+            console.log('No changes found');
             return;
         }
 
@@ -130,8 +149,8 @@ window.addEventListener('load', function() {
             //console.log(regions[name]);
             if (regions.hasOwnProperty(name)) {
                 //console.log(name);
-                console.log(regions[name]);
-                //console.log((name, regions[name]));
+                //console.log(regions[name]);
+                console.log((name, regions[name]));
 
                 payload.append(name, regions[name]);
             } else {
@@ -159,6 +178,8 @@ window.addEventListener('load', function() {
         xhr.addEventListener('readystatechange', onStateChange);
         xhr.open('POST', 'model/ct-content.php');
         xhr.send(payload);
+
+        document.getElementById("backupEdit").style.display = "block";
     });
 
 
