@@ -141,3 +141,9 @@ array_unshift($content, "");
         <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=nl&q=Spuistraat%20210%2C%201012%20VT%20Amsterdam%2C%20Netherlands+(Mijn%20bedrijfsnaam)&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/nl/maak-een-google-map/">Maak een Google Map</a> van <a href="https://www.mapsdirections.info/nl/">Nederland Kaart</a></iframe>
     </div>
 </div>
+
+<style>
+    .backup-option:checked{
+        background-color: lightgrey;
+    }
+</style>

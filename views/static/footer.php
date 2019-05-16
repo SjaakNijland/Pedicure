@@ -14,12 +14,12 @@
         <h3>Sitemap</h3>
         <div class="list-items">
           <ul>
-              <li><p><a href="#!">Home</a></p></li>
+              <li><p><a href="home">Home</a></p></li>
               <li><p><a href="#!">Over mij</a></p></li>
-              <li><p><a href="#!">Behandelingen</a></p></li>
+              <li><p><a href="behandelingen">Behandelingen</a></p></li>
               <li><p><a href="#!">Tips</a></p></li>
               <li><p><a href="#!">Prijslijst</a></p></li>
-              <li><p><a href="#!">Contact</a></p></li>
+              <li><p><a href="contact">Contact</a></p></li>
           </ul>
         </div>
     </div>
