@@ -2,7 +2,7 @@
 $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.id=content.body_id WHERE name LIKE 'contact%'")->fetchAll(PDO::FETCH_ASSOC);
 array_unshift($content, "");
 
-var_dump($content);
+//var_dump($content);
 
 ?>
 

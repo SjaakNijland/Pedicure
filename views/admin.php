@@ -20,7 +20,7 @@ if(LOGGED_IN){
     $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.id=content.body_id WHERE name LIKE 'home%'")->fetchAll(PDO::FETCH_ASSOC);
     array_unshift($content, "");
     ?>
-<div class="home-testimonials">
+<div class="home-testimonials" style="width: 50%; margin-bottom: 50px">
     <div class="slide1">
         <div class="inner">
             <div data-editable data-name="content[6]">

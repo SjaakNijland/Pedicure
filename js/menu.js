@@ -15,7 +15,7 @@ $(document).ready(function(){
     });
 });
 
-var nav = document.getElementsById('nav');
+//var nav = document.getElementsById('nav');
 
 window.onscroll = function(){
     if (window.pageYOffset >100) {
