@@ -1,5 +1,6 @@
 $primary-color: #5ABEAF;
 $secondary-color: #505050;
+$third-color: #FF8C6C;
 $white: #FFF;
 $title: 'Montserrat', sans-serif;
 $font: 'Raleway', sans-serif;
@@ -158,9 +159,13 @@ input:checked ~ .menu {
 
 // menu
 
+.menu-desktop {
+    display: none;
+}
+
 .menu {
     display: flex;
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     position: fixed;
     z-index: 11;
@@ -256,6 +261,133 @@ input:checked ~ .menu {
     .menu {
         display: none;
     }
+
+    .menu-desktop {
+        display: block;
+    }
+
+    .desktop-menu  {
+        background-color: #ffffff;
+        width: 100%;
+        float: left;
+        padding: 10 0 0 100;
+        z-index: 11111;
+        display: block;
+        transition: all ease .5s;
+        box-shadow: 0px 0px 5px 1px #ababab;
+        border-bottom: solid 2px #5abeaf;
+        overflow: hidden;
+
+        ol, #shrink {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item {
+            display: inline-block;
+            padding: 0px 0 0px;
+            vertical-align: middle;
+        }
+    }
+
+    #logo {
+        color: #fff;
+        float: left;
+        width: 150px;
+        height: auto;
+        margin: 6px 40px 16px 100px;
+        transition: all ease .5s;
+    }
+
+    ol, #shrink {
+        list-style: none;
+        padding: 0;
+    }
+
+    .items {
+        display: inline-block;
+        padding: 0px 0 0px;
+        vertical-align: middle;
+    }
+
+    .desktop-item:hover, .desktop-item:focus, .desktop-item:active {
+        color: #5abeaf;
+        text-decoration: none;
+    }
+
+    .desktop-item {
+        font-family: 'Montserrat', sans-serif;
+        position: relative;
+        display: block;
+        color: #686868;
+        padding: 16px 0;
+        margin: 0 16px;
+        letter-spacing: 1px;
+        font-size: 16px;
+        line-height: 16px;
+        text-decoration: none;
+        text-transform: none;
+        transition: color 0.1s,background-color 0.1s,padding 0.2s ease-in;
+    }
+
+    .desktop-item::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 3px;
+        left: 0;
+        border-radius: 100px;
+        height: 2px;
+        width: 100%;
+        background-color: #5abeaf;
+        transform-origin: right top;
+        transform: scale(0, 1);
+        transition: color 0.1s,transform 0.2s ease-out;
+    }
+
+    .desktop-item:active::before {
+        background-color: #5abeaf;
+    }
+
+    .desktop-item:hover::before, .desktop-item:focus::before {
+        transform-origin: left top;
+        transform: scale(1, 1);
+    }
+
+    .topbar {
+        box-sizing: border-box;
+        background: #5abeaf;
+        display: block;
+        width: 100%;
+        z-index: 22222;
+        color: #fff;
+        padding-left: 100px;
+        padding-top: .55em;
+        padding-bottom: .55em;
+
+        i {
+            padding: 0px 10px 0px 40px;
+        }
+
+        i:first-child {
+            padding: 0px 10px 0px 0px;
+        }
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+    .sticky + .content {
+      padding-top: 60px;
+    }
+
 }
 
 /* home */
@@ -871,38 +1003,278 @@ input:checked ~ .menu {
 
 // Behandeling pagina
 
+.wrapper {
+    margin: 20px 0;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(90,190,175,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(90,190,175,1);
+    box-shadow: 0px 0px 10px 0px rgba(90,190,175,1);
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+    .wrapper {
+        margin: 50px 0;
+    }
+}
+
+.accordion-background {
+    background-image: url('../img/wave.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .accordion-background {
+        background-image: url("../img/wave2.svg");
+        background-size: cover;
+    }
+}
+
 .accordion {
-    background-color: #eee;
-    color: #444;
+    color: $secondary-color;
+    font-weight: bold;
+    background-color: $white;
     cursor: pointer;
     padding: 18px;
     width: 100%;
-    text-align: left;
     border: none;
+    text-align: left;
     outline: none;
+    font-size: 15px;
     transition: 0.4s;
 }
+
+.accordion:first-child {
+    border-radius: 10px 10px 0 0;
+}
+
 
 .active, .accordion:hover {
     background-color: #ccc;
 }
 
+.active{
+   border-radius: 0;
+}
+
 .accordion:after {
-    content: '\002B';
-    color: #777;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
+   font-family: "Font Awesome 5 Free";
+   font-size: 24px;
+   content: "\f078";
+   font-weight: bold;
+   float: right;
+   margin-left: 5px;
+   -webkit-transition: 0.5s;
+   transition: 0.5s;
 }
 
 .active:after {
-    content: "\2212";
+    transform: rotate(180deg);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
 }
 
 .panel {
     padding: 0 18px;
-    background-color: white;
+    background-color: $white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+.odd{
+    color: $white;
+    background-color: $primary-color;
+}
+.odd:after{
+    color: $white;
+}
+
+.page-banner {
+    img {
+        width: 100%;
+        margin-top: 60px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        img {
+            margin-top: 0;
+        }
+    }
+}
+
+.page-info {
+    margin-top: -65px;
+
+    .title {
+        text-align: center;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .title {
+            font-size: 50px;
+            margin: 50px 0 0 0;
+        }
+    }
+
+    .quote {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .quote {
+            font-size: 30px;
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .page-info {
+        margin-top: -135px;
+    }
+}
+
+// over mij pagina
+
+.about-text {
+    .about-title {
+        color: $secondary-color;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+        font-family: $title;
+    }
+}
+
+.about-image {
+    .about-blue-title {
+        color: $primary-color;
+        font-size: 16px;
+    }
+
+    .layer-1 {
+        position: relative;
+        img {
+            width: 100%;
+        }
+
+        .layer-2 {
+            position: absolute;
+            width: 80%;
+            left: 10%;
+            top: 10%;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .layer-1 {
+            float: right;
+            width: 50%;
+        }
+    }
+}
+
+.about-blue-title.desktop {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .about-blue-title.desktop {
+        display: block;
+        color: $primary-color;
+        font-size: 24px;
+    }
+
+    .about-blue-title.mobile {
+        display: none;
+    }
+}
+
+.partners {
+    clear: both;
+    text-align: center;
+    background-image: url("../img/waves-pedicure.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 30px;
+
+    .partners-logo {
+        width: 100%;
+        background-color: $white;
+        float: left;
+        margin: -30px 0 30px 0;
+
+        .logos {
+            width: 80%;
+            margin: 0 auto;
+
+            img {
+                width: 50%;
+                padding: 10px;
+                box-sizing: border-box;
+                float: left;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .logos {
+                width: 30%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .partners {
+        height: 350px;
+        background-image: url("../img/wave2.svg");
+    }
+}
+
+.more-info {
+    text-align: center;
+
+    .info-block {
+      margin-bottom: 30px;
+
+        p {
+            padding: 10px 0;
+        }
+
+        .button {
+            font-size: 16px;
+            border-radius: 4px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .info-block {
+            display: table-cell;
+            text-align: left;
+            padding: 10px;
+        }
+    }
+
+    .info-block.blue {
+        color: $primary-color;
+
+        .button {
+            background: $primary-color;
+        }
+    }
+
+    .info-block.orange {
+        color: $third-color;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .more-info {
+        margin-bottom: 50px;
+    }
 }
