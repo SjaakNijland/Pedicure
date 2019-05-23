@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 date_default_timezone_set('Europe/Amsterdam');
 session_start();
-
+header('Content-type:text/html; charset=utf-8');
 
 require_once "includes/config.php";
 require_once "model/Account.php";
