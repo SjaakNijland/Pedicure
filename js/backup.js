@@ -1,8 +1,7 @@
 window.addEventListener('load', function() {
 
-    function removeElement(id) {
-        var elem = document.getElementById(id);
-        return elem.parentNode.removeChild(elem);
+    function decode_utf8(s) {
+        return decodeURIComponent(escape(s));
     }
 
     var edit = document.getElementById("backupEdit");
@@ -10,6 +9,7 @@ window.addEventListener('load', function() {
     var cancel = document.getElementById("backupCancel");
 
     var name = window.location.pathname.split("/").pop();
+
     function clearBackupStyle(){
         var div = document.getElementsByTagName("div");
         for (var i = 0; i < div.length; i++) {
@@ -19,9 +19,8 @@ window.addEventListener('load', function() {
         }
 
         var selects = document.getElementsByClassName("selectBack");
-        for (var i = 0; i < selects.length; i++) {
-            console.log(selects[i]);
-            selects[i].remove();
+        for (var i = selects.length; i > 0; i--) {
+            selects[i-1].remove();
             //selects[i].style.display = "none";
             //selects[i].parentNode.removeChild(selects[i]);
         }
@@ -49,8 +48,9 @@ window.addEventListener('load', function() {
         xhr = new XMLHttpRequest();
         xhr.addEventListener('load', function (result) {
             if (parseInt(result.target.status) == 200) {
+                console.log(result.target.responseText);
                 var data = JSON.parse(result.target.responseText);
-                //console.log(data);
+                console.log(data);
 
                 var sorted = {};
 
@@ -80,22 +80,18 @@ window.addEventListener('load', function() {
                             }
                         }
 
-                        divs[i].insertAdjacentHTML('afterend', '<select id="option[' + (backup[0]['content_id']) + ']" class="selectBack">' + optionsDate + '</select>');
+                        divs[i].insertAdjacentHTML('afterend', '<select id="option[' + (backup[0]['content_id']) + ']" class="selectBack">' + optionsDate + '</select><button id="del[' + (backup[0]['content_id']) + ']" class="delBack">Verwijder</button>');
 
                         document.getElementById("option[" + (backup[0]['content_id']) + "]").addEventListener("change", changeData);
+
                     }
                 }
 
                 function changeData(e) {
-                    //console.log(e);
-                    //console.log(e.target[e.target.options[e.target.selectedIndex].index]);
-                    //console.log("Target id: " + e.target.id);
-                    //console.log("Value: " + e.target[e.target.options[e.target.selectedIndex].index].value);
-
                     var div_id = e.target.id.replace(/[^0-9]*/g, '');
-
-                    e.target.previousSibling.innerHTML = sorted[div_id][e.target.selectedIndex]['body'];
+                    e.target.previousSibling.innerHTML = decode_utf8(sorted[div_id][e.target.selectedIndex]['body']);
                 }
+
 
             }
         });
@@ -144,8 +140,6 @@ window.addEventListener('load', function() {
         edit.removeEventListener("click", editB);
         edit.addEventListener("click", editB);
     }
-
-
 
     function showOptions(){
         edit.style.display = "none";
