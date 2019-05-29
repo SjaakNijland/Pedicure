@@ -231,12 +231,11 @@ window.addEventListener('load', function() {
 
          //console.log(ev);
 
-
          // Define functions to handle upload progress and completion
          xhrProgress = function (ev) {
              // Set the progress for the upload
              dialog.progress((ev.loaded / ev.total) * 100);
-         }
+         };
 
          xhrComplete = function (ev) {
              var response;
@@ -247,9 +246,9 @@ window.addEventListener('load', function() {
              }
 
              // Clear the request
-             xhr = null
-             xhrProgress = null
-             xhrComplete = null
+             xhr = null;
+             xhrProgress = null;
+             xhrComplete = null;
 
              // Handle the result of the upload
              if (parseInt(ev.target.status) == 200) {
@@ -268,7 +267,7 @@ window.addEventListener('load', function() {
                  // The request failed, notify the user
                  new ContentTools.FlashUI('no');
              }
-         }
+         };
 
          // Set the dialog state to uploading and reset the progress bar to 0
          dialog.state('uploading');
