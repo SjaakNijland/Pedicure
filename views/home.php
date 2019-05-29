@@ -146,4 +146,46 @@ array_unshift($content, "");
     .backup-option:checked{
         background-color: lightgrey;
     }
+    /* Alignment styles for images, videos and iframes in editable regions */
+
+    /* Center (default) */
+    [data-editable] iframe,
+    [data-editable] image,
+    [data-editable] [data-ce-tag=img],
+    [data-editable] img,
+    [data-editable] video {
+        clear: both;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    /* Left align */
+    [data-editable] .align-left {
+        clear: initial;
+        float: left;
+        margin-right: 0.5em;
+    }
+
+    /* Right align */
+    [data-editable].align-right {
+        clear: initial;
+        float: right;
+        margin-left: 0.5em;
+    }
+
+    /* Alignment styles for text in editable regions */
+    [data-editable] .text-center {
+        text-align: center;
+    }
+
+    [data-editable] .text-left {
+        text-align: left;
+    }
+
+    [data-editable] .text-right {
+        text-align: right;
+    }
+    ​
 </style>

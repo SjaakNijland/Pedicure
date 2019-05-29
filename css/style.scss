@@ -23,7 +23,9 @@ body {
 }
 
 /* Content Tools */
-
+.backup{
+    z-index: 99999999;
+}
 /* Center (default) */
 [data-editable] iframe,
 [data-editable] image,
@@ -63,9 +65,7 @@ body {
 [data-editable] .text-right {
     text-align: right;
 }
-
-/* End Content Tools*/
-
+​
 .inner {
   margin: 0 10%;
 }

@@ -62,7 +62,7 @@ class Account extends PDO
     public function changePassword($newPassword, $newPasswordCheck){
         if($newPassword === $newPasswordCheck){
             $password = password_hash($newPassword, PASSWORD_DEFAULT);
-            $stmt = $this->db->prepare("UPDATE `" . $this->table . "` SET `" . $this->password_rowName . "` = :password WHERE `" . $this->id_rowName . "` = " . $_SESSION['USER_ID']);
+            $stmt = $this->db->prepare("UPDATE `" . $this->table . "` SET `" . $this->password_rowName . "` = :password WHERE `" . $this->id_rowName . "` = " . $_SESSION['LOGGED_IN']);
             $stmt->bindValue(':password', $password);
             if($stmt->execute()){
                 return 1;

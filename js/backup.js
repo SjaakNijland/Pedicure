@@ -10,6 +10,10 @@ window.addEventListener('load', function() {
 
     var name = window.location.pathname.split("/").pop();
 
+    if (name == "admin"){
+        name = "home";
+    }
+
     function clearBackupStyle(){
         var div = document.getElementsByTagName("div");
         for (var i = 0; i < div.length; i++) {
@@ -44,11 +48,14 @@ window.addEventListener('load', function() {
         }
 
         var selectedOld = [];
+        //var deletedSelect = [];
+        //var deletedId = [];
+
 
         xhr = new XMLHttpRequest();
         xhr.addEventListener('load', function (result) {
             if (parseInt(result.target.status) == 200) {
-                console.log(result.target.responseText);
+                //console.log(result.target.responseText);
                 var data = JSON.parse(result.target.responseText);
                 console.log(data);
 
@@ -80,12 +87,28 @@ window.addEventListener('load', function() {
                             }
                         }
 
-                        divs[i].insertAdjacentHTML('afterend', '<select id="option[' + (backup[0]['content_id']) + ']" class="selectBack">' + optionsDate + '</select><button id="del[' + (backup[0]['content_id']) + ']" class="delBack">Verwijder</button>');
-
+                        divs[i].insertAdjacentHTML('afterend', '<select id="option[' + (backup[0]['content_id']) + ']" class="selectBack">' + optionsDate + '</select>');
+                    //<button id="del[' + (backup[0]['content_id']) + ']" class="delBack">Verwijder</button>
                         document.getElementById("option[" + (backup[0]['content_id']) + "]").addEventListener("change", changeData);
+                        //document.getElementById("del[" + (backup[0]['content_id']) + "]").addEventListener("click", deleteBackup);
 
                     }
                 }
+
+                //function deleteBackup(e) {
+                //    console.log(selectedOld);
+                //    console.log(e.target.previousSibling.id);
+                //    //deleted.push(e.target.id.replace(/[^0-9]*/g, ''), e.target.previousSibling.selectedIndex);
+                //    deletedSelect.push(e.target.id.replace(/[^0-9]*/g, ''));
+                //    deletedId.push(e.target.previousSibling[e.target.previousSibling.selectedIndex].value);
+                //    //deleted[e.target.id.replace(/[^0-9]*/g, '')] = e.target.previousSibling.selectedIndex;
+                //    //console.log(e.target.previousSibling.selectedIndex);
+                //    //console.log(e.target.id.replace(/[^0-9]*/g, ''));
+                //    //console.log(deleted);
+                //    //console.log(e.target.previousSibling[e.target.previousSibling.selectedIndex].value);
+                //    //e.target.previousSibling[e.target.previousSibling.selectedIndex].style.display = "none";
+                //    e.target.previousSibling.remove(e.target.previousSibling.selectedIndex);
+                //}
 
                 function changeData(e) {
                     var div_id = e.target.id.replace(/[^0-9]*/g, '');
@@ -105,13 +128,23 @@ window.addEventListener('load', function() {
 
             var selects = document.getElementsByClassName("selectBack");
             var updatedBackups = {};
+            //var deletedBackups = {};
 
             for (var i = 0; i < selects.length; i++) {
                 if (selects[i].value != selectedOld[i]) {
                     updatedBackups[selects[i].id.replace(/[^0-9]*/g, '')] = selects[i].value;
                 }
             }
-            console.log(updatedBackups);
+            //for (var j = 0; j < deletedSelect.length; j++){
+            //    deletedBackups[deletedSelect[j]] = deletedId[j];
+            //}
+
+            //console.log(updatedBackups);
+            //console.log(deletedBackups);
+            //console.log(deletedSelect);
+            //console.log(deletedId);
+
+
             xhr = new XMLHttpRequest();
             xhr.addEventListener('load', function (result) {
                 if (parseInt(result.target.status) == 200) {
