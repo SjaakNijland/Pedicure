@@ -90,8 +90,10 @@ if(isset($_FILES["image"])) {
         $resized = img_resize($target_file, ('../'.$resized_file), $wmax, $hmax, $fileExt);
         unlink($target_file);
     }
+//    unlink($fileName);
 
+//    echo $fileName;
 }
 
-$array = ['url' => $resized_file, 'size' => [round($resized[0]), round($resized[1])], 'alt' => str_replace(['-', '_', '+', '%20', '/'], ' ', str_replace('.' . $imageFileType, '', $_FILES["image"]["name"])) ];
+$array = ['url' => $resized_file, 'size' => [round($resized[0]/3), round($resized[1]/3)], 'alt' => str_replace(['-', '_', '+', '%20', '/'], ' ', str_replace('.' . $imageFileType, '', $_FILES["image"]["name"])) ];
 echo json_encode($array);

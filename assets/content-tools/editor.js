@@ -6,7 +6,6 @@ window.addEventListener('load', function() {
       new ContentTools.Style('Lees Meer', 'read-more-link', ['p']),
       new ContentTools.Style('Info Titel', 'info-title', ['p']),
       new ContentTools.Style('Tweede Info Titel', 'sec-info-title', ['p']),
-      new ContentTools.Style('Tweede Info Titel', 'sec-info-title', ['p']),
       new ContentTools.Style('Info', 'info', ['p'])
     ]);
 
