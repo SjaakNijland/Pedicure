@@ -1,3 +1,41 @@
+<div class="container">
+    <div class="page-banner">
+        <img src="img/banner.png">
+        <div class="background-layer"></div>
+    </div>
+    <div class="inner">
+        <div class="page-info">
+            <p class="title">Contact</p>
+            <div class="contact-info">
+                <p class="contact-info-title">Contactgegevens</p>
+                <p class="contact-info-content"><i class="fas fa-phone"></i> (+31) 06 513 046 51</p>
+                <p class="contact-info-content"><i class="fas fa-envelope"></i> pedicurepraktijksol@gmail.com</p>
+                <form method="post" class="contact-form">
+                    <input name="voornaam" type="text" placeholder="Voornaam" required>
+                    <input name="achternaam" type="text" placeholder="Achternaam" required>
+                    <input name="email" type="email" placeholder="Email" required>
+                    <input name="tel" type="tel" placeholder="Telefoon" required>
+                    <p class="check-row"><input id="check1" name="checkTel" type="checkbox" class="check" required>Ik ben bereikbaar via Telefoon</p>
+                    <p class="check-row"><input id="check2" name="checkMail" type="checkbox" class="check" value=" "required>Ik ben bereikbaar via mail</p>
+                    <input name="contact" type="submit" value="Verzenden" class="button">
+                </form>
+                <p class="contact-info-title">Waar vind u pedicurepraktijk Sol?</p>
+                <p class="contact-info-second-title">Pedicurepraktijk Sol bevindt zich op 2 locaties</p>
+                <div class="contact-map-block">
+                    <p class="map-title">Bergerweg 57, 1816 BN</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2421.2016134793835!2d4.729247216002199!3d52.63827043520969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47cf57bd042af8ad%3A0x7118242ce1a7bec5!2sBergerweg+57%2C+1816+BN+Alkmaar!5e0!3m2!1snl!2snl!4v1559128310920!5m2!1snl!2snl"  allowfullscreen></iframe>
+                    <p class="map-info"> praktijk aan huis Bergerweg 57, 1816 BN. De praktijkruimte bevindt zich op de 1e etage.  Er is vrij parkeren aan de Bergerweg en in het Rembrandtkwartier achter de Bergerweg.</p>
+                </div>
+                <div class="contact-map-block">
+                    <p class="map-title">Bergerweg 57, 1816 BN</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2421.2016134793835!2d4.729247216002199!3d52.63827043520969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47cf57bd042af8ad%3A0x7118242ce1a7bec5!2sBergerweg+57%2C+1816+BN+Alkmaar!5e0!3m2!1snl!2snl!4v1559128310920!5m2!1snl!2snl"  allowfullscreen></iframe>
+                    <p class="map-info"> praktijk aan huis Bergerweg 57, 1816 BN. De praktijkruimte bevindt zich op de 1e etage.  Er is vrij parkeren aan de Bergerweg en in het Rembrandtkwartier achter de Bergerweg.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php
 $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.id=content.body_id WHERE name LIKE 'contact%'")->fetchAll(PDO::FETCH_ASSOC);
 array_unshift($content, "");
@@ -42,20 +80,7 @@ if(isset($errorMessage)){
 }
 
 ?>
-<form method="post">
-    <input name="voornaam" type="text" placeholder="Voornaam" required>
-    <input name="achternaam" type="text" placeholder="Achternaam" required>
-    <input name="email" type="email" placeholder="Email" required>
-    <input name="tel" type="tel" required>
-    <input id="check1" name="checkTel" type="checkbox" required>
-    <input id="check2" name="checkMail" type="checkbox" required>
-    <input name="contact" type="submit" value="Verzenden">
-</form>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <?php
 if(isset($result)){
     echo $result;

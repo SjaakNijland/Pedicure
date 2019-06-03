@@ -1380,3 +1380,109 @@ input:checked ~ .menu {
         margin-bottom: 50px;
     }
 }
+
+// contact
+
+.contact-info {
+    text-align: center;
+    font-size: 16px;
+    color: $secondary-color;
+
+    .contact-info-title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .contact-info-second-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: $primary-color;
+        margin: 0;
+    }
+
+    i {
+        color: $primary-color;
+    }
+
+}
+
+.contact-form {
+    border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(255,140,108,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(255,140,108,1);
+    box-shadow: 0px 0px 10px 0px rgba(255,140,108,1);
+    padding: 10px;
+    text-align: left;
+
+    input {
+        border: 1px solid $third-color;
+        font-size: 14px;
+        padding: 10px;
+        margin: 10px;
+        width: 90%;
+        box-sizing: border-box;
+    }
+
+    @media screen and (min-width: 1024px) {
+        input {
+            width: 46%;
+        }
+    }
+
+    .check {
+        width: 5%;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .button {
+            position: absolute;
+            font-size: 18px;
+            width: 250px;
+            padding: 10px 60px;
+            margin-top: -10px;
+            left: 42%;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .contact-form {
+            width: 80%;
+            margin:  0 auto;
+        }
+    }
+}
+
+.contact-info-title {
+    margin-top: 50px;
+}
+
+.contact-map-block {
+    margin: 50px 0;
+
+    .map-title {
+      font-size: 16px;
+      color: $secondary-color;
+      font-weight: bold;
+    }
+
+    iframe {
+        width: 100%;
+        height: 250px;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(90,190,175,1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(90,190,175,1);
+        box-shadow: 0px 0px 10px 0px rgba(90,190,175,1);
+    }
+
+    .map-info {
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .contact-map-block {
+        width: 50%;
+        float: left;
+        padding: 0 50px;
+        box-sizing: border-box;
+    }
+}
