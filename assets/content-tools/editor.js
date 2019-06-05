@@ -6,7 +6,6 @@ window.addEventListener('load', function() {
       new ContentTools.Style('Lees Meer', 'read-more-link', ['p']),
       new ContentTools.Style('Info Titel', 'info-title', ['p']),
       new ContentTools.Style('Tweede Info Titel', 'sec-info-title', ['p']),
-      new ContentTools.Style('Tweede Info Titel', 'sec-info-title', ['p']),
       new ContentTools.Style('Info', 'info', ['p'])
     ]);
 
@@ -50,11 +49,17 @@ window.addEventListener('load', function() {
 
 
 
-    //var imgControl = ContentTools
-    // var tools = ContentTools.DEFAULT_TOOLS;
-    //console.log(tools);
-    // tools.splice(2,1);
-    // editor.toolbox().tools(tools);
+    var imgControl = ContentTools
+    var tools = ContentTools.DEFAULT_TOOLS;
+    console.log(tools);
+    //tools.splice(1,1);
+    tools[2].splice(1,2);
+    tools[2].push("unordered-list");
+    tools[2].push("paragraph");
+    //"paragraph"
+    //tools[1].splice(3,6);
+    tools.splice(1, 1);
+    editor.toolbox().tools(tools);
 
     //ContentEdit.Root.get().bind('focus', function(element) {
     //    var name = element._domElement.parentElement.getAttribute('data-name');

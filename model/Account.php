@@ -73,6 +73,60 @@ class Account extends PDO
             return 0;
         }
     }
+    public function resetPassword($newPassword, $newPasswordCheck, $token, $id){
+        $stmt = $this->db->prepare("SELECT `" . $this->password_rowName . "`,`" . $this->id_rowName . "` FROM `" . $this->table . "` WHERE ". $this->id_rowName ." = :id");
+        $stmt->bindValue(':id', $id);
+        if($stmt->execute()) {
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($stmt->rowCount() > 0) {
+                if($user[$this->password_rowName] == $token){
+                    if($newPassword === $newPasswordCheck){
+                        $password = password_hash($newPassword, PASSWORD_DEFAULT);
+                        $stmt = $this->db->prepare("UPDATE `" . $this->table . "` SET `" . $this->password_rowName . "` = :password WHERE `" . $this->id_rowName . "` = :id");
+                        $stmt->bindValue(':password', $password);
+                        $stmt->bindValue(':id', $id);
+                        if($stmt->execute()){
+                            $_SESSION['LOGGED_IN'] = $user[$this->id_rowName];
+                            return 1;
+                        } else{
+                            return 0;
+                        }
+                    } else{
+                        return 0;
+                    }
+                } else{
+                    return 0;
+                }
+            } else{
+                return 0;
+            }
+        } else{
+            return 0;
+        }
+    }
+
+    public function forgotPassword($username){
+        $stmt = $this->db->prepare("SELECT `" . $this->password_rowName . "`,`" . $this->id_rowName . "` FROM `" . $this->table . "` WHERE ". $this->username_rowName ." = :username");
+        $stmt->bindValue(':username', filter_var($username, FILTER_SANITIZE_STRING), PDO::PARAM_STR);
+        if($stmt->execute()){
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($stmt->rowCount() > 0) {
+                $ran = bin2hex(random_bytes(15));
+                $stmt = $this->db->prepare("UPDATE `" . $this->table . "` SET `" . $this->password_rowName . "` = :password WHERE `" . $this->id_rowName . "` = :id");
+                $stmt->bindValue(':password', $ran);
+                $stmt->bindValue(':id', $user[$this->id_rowName]);
+                if($stmt->execute()) {
+                    return "&id=" . $user[$this->id_rowName] . "&token=" . $ran;
+                } else{
+                    return 0;
+                }
+            } else{
+                return 0;
+            }
+        } else{
+            return 0;
+        }
+    }
 
     public function checkLoggedIn(){
         return isset($_SESSION['LOGGED_IN']) ? $_SESSION['LOGGED_IN'] : 0;

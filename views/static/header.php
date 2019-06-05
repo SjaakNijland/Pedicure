@@ -60,8 +60,8 @@ if(LOGGED_IN){
             <li class="item"><a href="home" class="desktop-item">Home</a></li>
             <li class="item"><a href="about" class="desktop-item">Over Mij</a></li>
             <li class="item"><a href="behandelingen" class="desktop-item">Behandelingen</a></li>
-            <li class="item"><a href="#" class="desktop-item">Tips</a></li>
-            <li class="item"><a href="#" class="desktop-item">Tarieven</a></li>
+            <li class="item"><a href="tips" class="desktop-item">Tips</a></li>
+            <li class="item"><a href="tarieven" class="desktop-item">Tarieven</a></li>
             <li class="item"><a href="contact" class="desktop-item">Contact</a></li>
             <?php
                 if(LOGGED_IN){
@@ -83,8 +83,8 @@ if(LOGGED_IN){
         <ul>
             <li><a href="home" class="item">Home</a></li>
             <li><a href="behandelingen">Behandelingen</a></li>
-            <li><a href="">Tips</a></li>
-            <li><a href="">Prijslijst</a></li>
+            <li><a href="tips">Tips</a></li>
+            <li><a href="tarieven">Prijslijst</a></li>
             <li><a href="contact">Contact</a></li>
             <div class="menu-block">
                 <a class="menu-links" href="tel:+310651304651">+31 06 513 046 51</a>

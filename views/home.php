@@ -67,7 +67,10 @@ array_unshift($content, "");
                 <img src="img/shape-blue.png" alt="" class="background-layer-1">
                 <div class="inner desktop">
                     <div class="image-layer2">
-                        <img src="img/Joke.png" alt="Joke Sol">
+                        <div class="ct-img" data-editable data-name="content[5]">
+                            <?php echo $content[5]['body']; ?>
+                        </div>
+<!--                        <img src="img/Joke.png" alt="Joke Sol">-->
                         <a href="" class="about-image-button mobile">Lees Meer</a>
                     </div>
                 </div>
@@ -76,20 +79,33 @@ array_unshift($content, "");
     </div>
     <div class="home-info">
         <div class="info-text">
-            <div class="inner" data-editable data-name="content[5]">
-                <?php echo $content[5]['body']; ?>
+            <div class="inner">
+                <div class="info-title" data-editable data-name="content[6]">
+                    <?php echo $content[6]['body']; ?>
+                </div>
+                <div class="sec-info-title" data-editable data-name="content[7]">
+                    <?php echo $content[7]['body']; ?>
+                </div>
+                <div class="info" data-editable data-name="content[8]">
+                    <?php echo $content[8]['body']; ?>
+                </div>
+            </div>
+<!--            <div class="inner" data-editable data-name="content[5]">-->
 <!--                <p class="info-title">Goed om te weten</p>-->
 <!--                <p class="sec-info-title">Wat bied ik aan</p>-->
 <!--                <p class="info">Lidmaatschap provoet, de brancheorganisatie van pedicures <a href="" class="read-more-link white">Lees meer</a></p>-->
 <!--                <p class="info">Een tip: bv. Tip voor een eerste bezoek: kom op schoenen die u al enige tijd heeft/draagt, ze geven informatie over de drukpunten en hoe u de voeten belast.</p>-->
-            </div>
+<!--            </div>-->
         </div>
         <div class="home-info-image">
             <div class="image-layer-1">
                 <img class="background-layer-1" src="img/shape.png" alt="">
                 <div class="inner">
                     <div class="image-layer-2">
-                        <img src="img/red-feet.jpg" alt="">
+                        <div data-editable data-name="content[9]" class="ct-img">
+                            <?php echo $content[9]['body']; ?>
+                        </div>
+<!--                        <img src="img/red-feet.jpg" alt="">-->
                         <div class="info-button">
                             <a href="behandelingen" class="button">Behandelingen</a>
                         </div>
@@ -102,7 +118,7 @@ array_unshift($content, "");
         <div class="slide1">
             <div class="inner">
                 <p class="testimonial-titel">Reviews pedicurepraktijk Sol</p>
-                <?php echo $content[6]['body']; ?>
+                <?php echo $content[10]['body']; ?>
 <!--                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
 <!--                <p>Patiënt</p>-->
             </div>
@@ -110,7 +126,7 @@ array_unshift($content, "");
         <div class="slide2">
             <div class="inner">
                 <p class="testimonial-titel">Reviews pedicurepraktijk Sol</p>
-                <?php echo $content[7]['body']; ?>
+                <?php echo $content[11]['body']; ?>
 <!--                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
 <!--                <p class="testimonial-name">Yenoah van Waard</p>-->
 <!--                <p>Patiënt</p>-->
@@ -119,7 +135,7 @@ array_unshift($content, "");
         <div class="slide3">
             <div class="inner">
                 <p class="testimonial-titel">Reviews pedicurepraktijk Sol</p>
-                <?php echo $content[8]['body']; ?>
+                <?php echo $content[12]['body']; ?>
 <!--                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
 <!--                <p class="testimonial-name">Yenoah van Waard</p>-->
 <!--                <p>Patiënt</p>-->
@@ -141,51 +157,3 @@ array_unshift($content, "");
         <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=nl&q=Spuistraat%20210%2C%201012%20VT%20Amsterdam%2C%20Netherlands+(Mijn%20bedrijfsnaam)&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/nl/maak-een-google-map/">Maak een Google Map</a> van <a href="https://www.mapsdirections.info/nl/">Nederland Kaart</a></iframe>
     </div>
 </div>
-
-<style>
-    .backup-option:checked{
-        background-color: lightgrey;
-    }
-    /* Alignment styles for images, videos and iframes in editable regions */
-
-    /* Center (default) */
-    [data-editable] iframe,
-    [data-editable] image,
-    [data-editable] [data-ce-tag=img],
-    [data-editable] img,
-    [data-editable] video {
-        clear: both;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 100%;
-    }
-
-    /* Left align */
-    [data-editable] .align-left {
-        clear: initial;
-        float: left;
-        margin-right: 0.5em;
-    }
-
-    /* Right align */
-    [data-editable].align-right {
-        clear: initial;
-        float: right;
-        margin-left: 0.5em;
-    }
-
-    /* Alignment styles for text in editable regions */
-    [data-editable] .text-center {
-        text-align: center;
-    }
-
-    [data-editable] .text-left {
-        text-align: left;
-    }
-
-    [data-editable] .text-right {
-        text-align: right;
-    }
-    ​
-</style>

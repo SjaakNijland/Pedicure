@@ -27,19 +27,19 @@ if(LOGGED_IN){
 <div class="home-testimonials" style="width: 50%; margin-bottom: 50px">
     <div class="slide1">
         <div class="inner">
-            <div data-editable data-name="content[6]">
-                <?php echo $content[6]['body']; ?>
+            <div data-editable data-name="content[10]">
+                <?php echo $content[10]['body']; ?>
             </div>
         </div>
     </div>
     <div class="slide2">
-        <div class="inner" data-editable data-name="content[7]">
-            <?php echo $content[7]['body']; ?>
+        <div class="inner" data-editable data-name="content[11]">
+            <?php echo $content[11]['body']; ?>
         </div>
     </div>
     <div class="slide3">
-        <div class="inner" data-editable data-name="content[8]">
-            <?php echo $content[8]['body']; ?>
+        <div class="inner" data-editable data-name="content[12]">
+            <?php echo $content[12]['body']; ?>
         </div>
     </div>
 </div>
