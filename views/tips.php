@@ -90,3 +90,6 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
         </div>
     </div>
 </div>
+<style>
+.tip-block-info{}
+</style>

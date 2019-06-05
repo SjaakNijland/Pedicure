@@ -80,7 +80,7 @@ window.addEventListener('load', function() {
                     if (backup.length > 1) {
                         for (var j = 0; j < backup.length; j++) {
                             if (divs[i].innerHTML.trim() == backup[j]['body']) {
-                                optionsDate += '<option class="backup-option" selected value="' + backup[j]['id'] + '">' + backup[j]['date'] + '</option>';
+                                optionsDate += '<option class="backup-option original" selected value="' + backup[j]['id'] + '">' + backup[j]['date'] + '</option>';
                                 selectedOld.push(backup[j]['id']);
                             } else {
                                 optionsDate += '<option class="backup-option" value="' + backup[j]['id'] + '">' + backup[j]['date'] + '</option>';

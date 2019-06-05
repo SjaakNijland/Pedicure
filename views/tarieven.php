@@ -88,10 +88,14 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
 </div>
 
 <style>
-    /*.price-row p{*/
-        /*padding-bottom: 16px;*/
-        /*border-bottom: 1px solid black;*/
-    /*}*/
+    .price-row p{
+        padding-bottom: 16px;
+        border-bottom: 1px solid black;
+    }
+    .price-row p:last-child{
+        border: none;
+        padding-bottom: 0;
+    }
 
     p a{
         color: #5ABEAF;
