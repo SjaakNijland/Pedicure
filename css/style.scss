@@ -23,6 +23,22 @@ body {
     }
 }
 
+.inner {
+  margin: 0 10%;
+}
+
+@media screen and (min-width: 1024px) {
+    .inner {
+      margin: 0 150px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .inner {
+      margin: 0 350px;
+    }
+}
+
 /* Content Tools */
 .backup{
     z-index: 99999999;
@@ -65,22 +81,6 @@ body {
 
 [data-editable] .text-right {
     text-align: right;
-}
-​
-.inner {
-  margin: 0 10%;
-}
-
-@media screen and (min-width: 1024px) {
-    .inner {
-      margin: 0 150px;
-    }
-}
-
-@media screen and (min-width: 1700px) {
-    .inner {
-      margin: 0 350px;
-    }
 }
 
 .title {
@@ -258,6 +258,19 @@ input:checked ~ .menu {
     }
 }
 
+.item .button {
+    display: none;
+}
+
+@media screen and (min-width: 1150px) {
+    .item .button {
+        display: block;
+        font-size: 16px;
+        border-radius: 4px;
+        box-shadow: none;
+    }
+}
+
 @media screen and (min-width: 780px) {
     .menu {
         display: none;
@@ -403,20 +416,13 @@ input:checked ~ .menu {
 
 @media screen and (min-width: 1024px) {
     .container .banner {
-        background-image: url("../img/voeten-home.png");
-        border-radius: 0 0 200px 200px;
+        display: none;
     }
 }
 
 .banner .banner-title  {
     padding-top: 50px;
     font-family: $title;
-}
-
-@media screen and (min-width: 1024px) {
-    .banner .banner-title  {
-        padding-top: 50px;
-    }
 }
 
 .banner .banner-title p {
@@ -426,53 +432,12 @@ input:checked ~ .menu {
     margin: 0;
 }
 
-@media screen and (min-width: 1024px) {
-    .banner .banner-title p {
-        font-size: 50px;
-        color: $white;
-        text-shadow: 1px 1px 1px #000;
-    }
-}
-
-
-@media screen and (min-width: 1700px) {
-    .banner .banner-title p {
-        font-size: 80px;
-        margin-bottom: 50px;
-    }
-}
-
-
 .banner .banner-text-mobile {
     margin-top: 26px;
 }
 
 .banner .banner-text p {
     display: none;
-}
-
-@media screen and (min-width: 1024px) {
-    .banner .banner-text p {
-        display: block;
-        font-size: 26px;
-        color: $white;
-        margin: 0;
-        text-shadow: 1px 1px 1px #000;
-        font-family: $title;
-        padding: 15px 0;
-    }
-
-    .banner .banner-text-mobile {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 1700px) {
-    .banner .banner-text p {
-        display: block;
-        font-size: 36px;
-        margin-top: -30px;
-    }
 }
 
 .banner .banner-text-mobile p {
@@ -487,6 +452,7 @@ input:checked ~ .menu {
 
 .home-about {
     margin-top: 50px;
+    width: 100%;
     background-image: url("../img/wave.svg");
     background-repeat: no-repeat;
     background-position: bottom;
@@ -1104,6 +1070,13 @@ input:checked ~ .menu {
     }
 }
 
+.wave-background {
+    background-image: url("../img/wave.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 .page-info {
     margin-top: -65px;
 
@@ -1137,6 +1110,10 @@ input:checked ~ .menu {
 @media screen and (min-width: 1024px) {
     .page-info {
         margin-top: -135px;
+    }
+
+    .wave-background {
+        background-image: url("../img/wave2.svg");
     }
 }
 
@@ -1316,6 +1293,7 @@ input:checked ~ .menu {
     box-shadow: 0px 0px 10px 0px rgba(90,190,175,1);
     border-radius: 10px;
     font-weight: bold;
+    background-color: $white;
     color: $secondary-color;
 
     .title-row {
@@ -1407,6 +1385,7 @@ input:checked ~ .menu {
 }
 
 .contact-form {
+  background-color: $white;
     border-radius: 6px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(255,140,108,1);
     -moz-box-shadow: 0px 0px 10px 0px rgba(255,140,108,1);
