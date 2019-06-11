@@ -169,6 +169,7 @@ window.addEventListener('load', function() {
 
             hideOptions();
             save.removeEventListener("click", saveB);
+            location.reload(false);
         });
         edit.removeEventListener("click", editB);
         edit.addEventListener("click", editB);

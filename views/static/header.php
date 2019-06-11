@@ -1,33 +1,45 @@
 <?php
 if(LOGGED_IN){
     ?>
-<div class="backup">
-    <button class="backupBut" id="backupEdit"></button>
-    <button class="backupBut options" id="backupSave">✔</button>
-    <button class="backupBut options" id="backupCancel">X</button>
+
+    <div class="backup">
+        <i id="backupEdit" class="fa fa-history fa-2x circle-icon backupBut"></i>
+        <i id="backupSave" class="fa fa-check fa-2x circle-icon backupBut options"></i>
+        <i id="backupCancel" class="fa fa-times fa-2x circle-icon backupBut options"></i>
+
 </div>
 <?php
 }
 ?>
 
 <style>
+
+    .circle-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        vertical-align: middle;
+        color: white;
+    }
+
     .backup{
         position: fixed;
         right: 2%;
         top: 2%;
         z-index: 99999;
     }
-    .backupBut{
-        border: 0;
-        border-radius: 50%;
-        padding: 20px;
-        cursor: pointer;
-    }
+
     .options{
         display: none;
     }
+    .backupBut:hover{
+        cursor: pointer;
+    }
+
     #backupEdit{
-        background-color: yellow;
+        background-color: orange;
         display: none;
     }
     #backupSave{
@@ -71,7 +83,6 @@ if(LOGGED_IN){
         </ul>
     </nav>
 </div>
-
 <div class="menu" id="nav">
     <div class="menu_logo">
         <a href="home"><img src="img/logo.svg"></a>

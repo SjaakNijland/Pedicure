@@ -15,6 +15,13 @@ if (!LOGGED_IN){
             $error = "<span style='color: #FF8C6C; font-style: italic;'>De e-mail of het wachtwoord is onjuist</span>";
         }
     }
+//    if (!empty($_POST['register'])) {
+//        if($account->register($_POST['rEmail'], $_POST['rPassword'])){
+//            redirect("home");
+//        } else {
+//            $error = "<span style='color: #FF8C6C; font-style: italic;'>De e-mail of het wachtwoord is onjuist</span>";
+//        }
+//    }
     if (!empty($_POST['recover'])) {
         if ($url = $account->forgotPassword($_POST['email'])){
             $link = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . $url;

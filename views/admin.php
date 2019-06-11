@@ -51,7 +51,7 @@ if(LOGGED_IN){
         <input name="test" type="submit" value="Aanpassen">
         </form>
     <?php echo !empty($message) ? $message : null; ?>
-
+<br><br>
 
 <?php
 }
