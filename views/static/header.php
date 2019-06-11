@@ -75,6 +75,7 @@ if(LOGGED_IN){
             <li class="item"><a href="tips" class="desktop-item">Tips</a></li>
             <li class="item"><a href="tarieven" class="desktop-item">Tarieven</a></li>
             <li class="item"><a href="contact" class="desktop-item">Contact</a></li>
+            <li class="item"><a href="" class="button">afspraak maken</a></li>
             <?php
                 if(LOGGED_IN){
                     ?><li class="item" style="background-color: lightgrey;"><a href="admin" class="desktop-item">Admin</a></li><?php

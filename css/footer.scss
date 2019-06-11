@@ -36,7 +36,13 @@ footer{
 	width: 100%;
 	text-align: left;
 	font: bold 16px Montserrat, sans-serif;
-	padding: 50px 200px 60px 250px;
+	padding: 5%;
+}
+
+@media screen and (min-width: 1700px) {
+		.footer-distributed{
+				padding: 50px 200px 60px 250px;
+		}
 }
 
 .footer-distributed .footer-left,
