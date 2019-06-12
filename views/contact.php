@@ -76,12 +76,12 @@ if(isset($result)){
                     <div class="contact-map-block">
                         <p class="map-title">Bergerweg 57, 1816 BN</p>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2421.2016134793835!2d4.729247216002199!3d52.63827043520969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47cf57bd042af8ad%3A0x7118242ce1a7bec5!2sBergerweg+57%2C+1816+BN+Alkmaar!5e0!3m2!1snl!2snl!4v1559128310920!5m2!1snl!2snl"  allowfullscreen></iframe>
-                        <p class="map-info"> praktijk aan huis Bergerweg 57, 1816 BN. De praktijkruimte bevindt zich op de 1e etage.  Er is vrij parkeren aan de Bergerweg en in het Rembrandtkwartier achter de Bergerweg.</p>
+                        <p class="map-info"> Alkmaar: praktijk aan huis Bergerweg 57, 1816 BN. De praktijkruimte bevindt zich op de 1e etage.  Er is vrij parkeren aan de Bergerweg en in het Rembrandtkwartier achter de Bergerweg. </p>
                     </div>
                     <div class="contact-map-block">
-                        <p class="map-title">Bergerweg 57, 1816 BN</p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2421.2016134793835!2d4.729247216002199!3d52.63827043520969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47cf57bd042af8ad%3A0x7118242ce1a7bec5!2sBergerweg+57%2C+1816+BN+Alkmaar!5e0!3m2!1snl!2snl!4v1559128310920!5m2!1snl!2snl"  allowfullscreen></iframe>
-                        <p class="map-info"> praktijk aan huis Bergerweg 57, 1816 BN. De praktijkruimte bevindt zich op de 1e etage.  Er is vrij parkeren aan de Bergerweg en in het Rembrandtkwartier achter de Bergerweg.</p>
+                        <p class="map-title">Bakkerspleintje 24 in Castricum.</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2426.239372364189!2d4.660626551710857!3d52.54719487972026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5f76a81624c6d%3A0xf0d8225c447ae89!2sBakkerspleintje+24%2C+1901+EZ+Castricum!5e0!3m2!1snl!2snl!4v1560249997545!5m2!1snl!2snl"  allowfullscreen></iframe>
+                        <p class="map-info">Castricum: op dinsdag houdt Pedicurepraktijk Sol praktijk in sfeervolle salon van Cosmo Hairstyling aan het Bakkerspleintje 24 in Castricum. U kunt gedurende 2 uur gratis parkeren met een parkeerschijf in de nabije omgeving.</p>
                     </div>
                 </div>
             </div>
