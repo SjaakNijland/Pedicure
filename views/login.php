@@ -15,22 +15,14 @@ if (!LOGGED_IN){
             $error = "<span style='color: #FF8C6C; font-style: italic;'>De e-mail of het wachtwoord is onjuist</span>";
         }
     }
-//    if (!empty($_POST['register'])) {
-//        if($account->register($_POST['rEmail'], $_POST['rPassword'])){
-//            redirect("home");
-//        } else {
-//            $error = "<span style='color: #FF8C6C; font-style: italic;'>De e-mail of het wachtwoord is onjuist</span>";
-//        }
-//    }
+
     if (!empty($_POST['recover'])) {
         if ($url = $account->forgotPassword($_POST['email'])){
             $link = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . $url;
             $from = "test@koenschutte.nl";
-//            $to = $_POST['email'];
             $to = "19844@ma-web.nl";
             $subject = "Wachtwoord resetten";
             $message = '<html><body>Reset je wachtwoord: <a href="http://koenschutte.nl/pedicure/login?recover'.$url.'" target="_blank">Wachtwoord resetten</a></body></html>';
-//            $message = '<html><body>Reset je wachtwoord: <a href="'.$link.'" target="_blank">Wachtwoord resetten</a></body></html>';
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             $headers .= 'From: '.$from.'' . "\r\n";
@@ -115,12 +107,6 @@ if (!LOGGED_IN){
     }
 
     ?>
-<!--    <span>Registreren</span>-->
-<!--    <form method="post">-->
-<!--        <input name="rEmail" type="email" placeholder="Email">-->
-<!--        <input name="rPassword" type="password" placeholder="Wachtwoord">-->
-<!--        <input name="register" type="submit" value="Registreren">-->
-<!--    </form>-->
     <style>
 
         input[type=text], input[type=password] {
@@ -180,7 +166,6 @@ if (!LOGGED_IN){
             padding-top: 16px;
         }
 
-        /* Change styles for span and cancel button on extra small screens */
         @media screen and (max-width: 800px) {
             span.psw {
                 display: block;

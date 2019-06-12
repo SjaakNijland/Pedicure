@@ -19,6 +19,3 @@
 
 </head>
 <body>
-    <div class="arrow-down">
-        <a href="#footer" id="top" class="arrow bounce"></a>
-    </div>
