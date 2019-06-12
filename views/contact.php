@@ -41,7 +41,7 @@ if (!empty($_POST['contact'])) {
 
 <div class="container">
     <div class="page-banner">
-        <img src="img/banner.png">
+        <img src="img/contact.png">
         <div class="background-layer"></div>
     </div>
     <div class="wave-background">
