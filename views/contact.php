@@ -36,8 +36,7 @@ if (!empty($_POST['contact'])) {
         mail($to,$subject,$message, $headers);
     }
 }
-$result = "<b class='color';>U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer.</b> Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail en telefoon in de gaten, u kunt gemaild worden door het e-mailadres: <b class='color';>pedicurepraktijksol@gmail.com</b> of gebeld worden door het nummer: <b class='color';>(+31) 06 513 046 51.</b>";
-
+//$result = "<b class='color';>U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer.</b> Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail en telefoon in de gaten, u kunt gemaild worden door het e-mailadres: <b class='color';>pedicurepraktijksol@gmail.com</b> of gebeld worden door het nummer: <b class='color';>(+31) 06 513 046 51.</b>";
 ?>
 
 <div class="container">
@@ -56,14 +55,17 @@ $result = "<b class='color';>U heeft aangevinkt bereikbaar te zijn via uw e-mail
                     <form method="post" class="contact-form">
                         <?php
                         if(isset($errorMessage)){
-                            echo $errorMessage;
+                            ?>
+                            <div class="contact-message">
+                                <span><?php echo $errorMessage ?></span>
+                            </div>
+                            <?php
                         }
                         if(isset($result)){
                             ?>
                             <div class="contact-message">
                                 <span><?php echo $result ?></span>
                             </div>
-
                             <?php
                         } else {
                             ?>
