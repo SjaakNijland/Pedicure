@@ -1,6 +1,7 @@
 <?php
+
 function redirect($url)
 {
-    exit(header('Location: ' . $url));
+   echo "<script>location.replace('$url')</script>";
+//    exit(header('Location: ' . $url));
 }
-

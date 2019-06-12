@@ -114,46 +114,73 @@ array_unshift($content, "");
             </div>
         </div>
     </div>
+    <?php
+    //echo $content[13]['body'];
+    $html =  $content[13]['body'];
+    //$src = (string) reset(simplexml_import_dom(DOMDocument::loadHTML($content[13]['body']))->xpath("//img/@src"));
+
+    $xpath1 = new DOMXPath(@DOMDocument::loadHTML($content[13]['body']));
+    $src1 = $xpath1->evaluate("string(//img/@src)");
+    $xpath2 = new DOMXPath(@DOMDocument::loadHTML($content[14]['body']));
+    $src2 = $xpath2->evaluate("string(//img/@src)");
+    $xpath3 = new DOMXPath(@DOMDocument::loadHTML($content[15]['body']));
+    $src3 = $xpath3->evaluate("string(//img/@src)");
+//    echo $src;
+
+    ?>
+
     <div class="home-testimonials slide">
-        <div class="slide1">
+        <div class="slidefix" style="background-image: url('<?php echo $src1 ?>')">
             <div class="inner">
                 <p class="testimonial-titel">Reviews pedicurepraktijk Sol</p>
                 <?php echo $content[10]['body']; ?>
-<!--                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
-<!--                <p>Patiënt</p>-->
             </div>
         </div>
-        <div class="slide2">
+        <div class="slidefix" style="background-image: url('<?php echo $src2 ?>')">
             <div class="inner">
                 <p class="testimonial-titel">Reviews pedicurepraktijk Sol</p>
                 <?php echo $content[11]['body']; ?>
-<!--                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
-<!--                <p class="testimonial-name">Yenoah van Waard</p>-->
-<!--                <p>Patiënt</p>-->
             </div>
         </div>
-        <div class="slide3">
+        <div class="slidefix" style="background-image: url('<?php echo $src3 ?>')">
             <div class="inner">
                 <p class="testimonial-titel">Reviews pedicurepraktijk Sol</p>
                 <?php echo $content[12]['body']; ?>
-<!--                <p>"Mijn evaring was fijn, ik ben overtuigd van de pedicure in de praktijk. Ik zal binnenkort weer een afspraak maken."</p>-->
-<!--                <p class="testimonial-name">Yenoah van Waard</p>-->
-<!--                <p>Patiënt</p>-->
             </div>
         </div>
     </div>
     <div class="home-gallery slide">
         <div class="gallery-image">
-            <img src="img/Joke.png" alt="joke sol">
+<!--            <img src="img/Joke.png" alt="joke sol">-->
+            <?php echo $content[16]['body']; ?>
         </div>
         <div class="gallery-image">
-            <img src="img/feet.png" alt="feet">
+<!--            <img src="img/feet.png" alt="feet">-->
+            <?php echo $content[17]['body']; ?>
         </div>
         <div class="gallery-image">
-            <img src="img/red-feet.jpg" alt="feet">
+            <?php echo $content[18]['body']; ?>
         </div>
+<!--        <div class="gallery-image">-->
+<!--            <img src="img/red-feet.jpg" alt="feet">-->
+<!--        </div>-->
     </div>
     <div class="maps">
         <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=nl&q=Spuistraat%20210%2C%201012%20VT%20Amsterdam%2C%20Netherlands+(Mijn%20bedrijfsnaam)&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/nl/maak-een-google-map/">Maak een Google Map</a> van <a href="https://www.mapsdirections.info/nl/">Nederland Kaart</a></iframe>
     </div>
 </div>
+
+
+<style>
+    .slidefix{
+        /*background-image: url('../img/gigi.jpg');*/
+        box-shadow: inset 0 0 0 500px rgba(0, 0, 0, 0.4);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        background-size: cover;
+        /*background-position: center;*/
+        padding: 50px 0;
+        height: 400px
+    }
+</style>

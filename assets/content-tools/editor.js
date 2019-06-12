@@ -153,7 +153,6 @@ window.addEventListener('load', function() {
             //console.log(name);
             //console.log(regions[name]);
             if (regions.hasOwnProperty(name)) {
-                //console.log(name);
                 //console.log(regions[name]);
                 console.log((name, regions[name]));
 

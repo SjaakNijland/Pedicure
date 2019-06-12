@@ -49,46 +49,39 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
                     </div>
                 </button>
                 <div class="panel">
-                    <div class="inherit" data-editable data-name="content[27]">
+                    <div data-editable data-name="content[27]">
                         <?php echo $content[5]['body']; ?>
                     </div>
-<!--                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
                 </div>
                 <button class="accordion">
                     <div class="inherit" data-editable data-name="content[28]">
                         <?php echo $content[6]['body']; ?>
                     </div>
-<!--                    voetverzorging-->
                     </button>
                 <div class="panel">
                     <div data-editable data-name="content[29]">
                         <?php echo $content[7]['body']; ?>
                     </div>
-<!--                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
                 </div>
                 <button class="accordion">
                     <div class="inherit" data-editable data-name="content[30]">
                         <?php echo $content[8]['body']; ?>
                     </div>
-<!--                    pedicure Behandeling <a href class="read-more-link">Plus</a>-->
                 </button>
                 <div class="panel">
                     <div data-editable data-name="content[31]">
                         <?php echo $content[9]['body']; ?>
                     </div>
-<!--                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
                 </div>
                 <button class="accordion">
-                    <div data-editable data-name="content[32]">
+                    <div class="inherit" data-editable data-name="content[32]">
                         <?php echo $content[10]['body']; ?>
                     </div>
-<!--                    Algehele voetenvezorging (45 minuten)-->
                 </button>
                 <div class="panel">
-                    <div data-editable data-name="content[33">
+                    <div data-editable data-name="content[33]">
                         <?php echo $content[11]['body']; ?>
                     </div>
-<!--                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
                 </div>
             </div>
         </div>
