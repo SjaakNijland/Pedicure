@@ -52,28 +52,32 @@ if(LOGGED_IN){
     </div>
 
     <div class="admin-block">
+        <h3 style="color: black">Review 1</h3>
       <div data-editable data-name="content[50]" class="admin-img">
           <?php echo $content[13]['body']; ?>
       </div>
-      <hr>
-      <div data-editable data-name="content[51]" class="admin-img">
+        <h3 style="color: black">Review 2</h3>
+        <div data-editable data-name="content[51]" class="admin-img">
           <?php echo $content[14]['body']; ?>
       </div>
-      <hr>
-      <div data-editable data-name="content[52]" class="admin-img">
+        <h3 style="color: black">Review 3</h3>
+        <div data-editable data-name="content[52]" class="admin-img">
           <?php echo $content[15]['body']; ?>
       </div>
     </div>
 </div>
 <div class="admin-wide">
-    <div class="admin-block">
-        <h2 style="color: black">Home img</h2>
+    <div class="admin-block" style="color: black">
+        <h2>Home afbeeldingen</h2>
+        <span>Home afbeelding 1</span>
         <div data-editable data-name="content[53]" class="admin-img">
             <?php echo $content[16]['body']; ?>
         </div>
+        <br><span>Home afbeelding 2</span>
         <div data-editable data-name="content[54]" class="admin-img">
             <?php echo $content[17]['body']; ?>
         </div>
+        <br><span>Home afbeelding 3</span>
         <div data-editable data-name="content[55]" class="admin-img">
             <?php echo $content[18]['body']; ?>
         </div>
@@ -105,9 +109,6 @@ if(LOGGED_IN){
             width: 100%;
             height: auto;
             /*color: black;*/
-        }
-        .admin-img div{
-            width: 200px;
         }
 
         /*Change password*/
