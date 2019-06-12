@@ -40,6 +40,10 @@ body {
     }
 }
 
+.color {
+    color: $third-color;
+}
+
 /* Content Tools */
 .backup{
     z-index: 99999999;
@@ -789,7 +793,16 @@ html:not([data-scroll='0']) {
 
 .home-testimonials {
     color: $white;
-    font-size: 16px;
+
+    p {
+      font-size: 16px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        p {
+          font-size: 20px;
+        }
+    }
 
     .slide1 {
         background-image: url('../img/gigi.jpg');
@@ -832,7 +845,7 @@ html:not([data-scroll='0']) {
 
     @media screen and (min-width: 1700px) {
         .testimonial-titel {
-            font-size: 60px;
+            font-size: 36px;
         }
     }
 
@@ -1343,7 +1356,7 @@ html:not([data-scroll='0']) {
 }
 
 .contact-form {
-  background-color: $white;
+    background-color: $white;
     border-radius: 6px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(255,140,108,1);
     -moz-box-shadow: 0px 0px 10px 0px rgba(255,140,108,1);
@@ -1389,6 +1402,17 @@ html:not([data-scroll='0']) {
     }
 }
 
+.contact-message {
+    margin: 5px;
+    text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .contact-message {
+        margin: 50px 130px;
+    }
+}
+
 .contact-info-title {
     margin-top: 50px;
 }
@@ -1423,3 +1447,22 @@ html:not([data-scroll='0']) {
         box-sizing: border-box;
     }
 }
+
+// admin
+
+.admin-block {
+    width: 50%;
+    padding: 50px;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.admin-wide {
+    width: 100%;
+    float: left;
+}
+
+.logout {
+    margin: 125px 0 50px 0;
+  }

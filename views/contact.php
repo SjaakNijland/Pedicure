@@ -19,13 +19,13 @@ if (!empty($_POST['contact'])) {
         $errorMessage = "Vul een geldig telefoonnummer in, alleen maar nummers toegestaan";
     } else{
         if(isset($_POST['checkTel']) && !isset($_POST['checkMail'])){
-            $result = "U heeft aangevinkt bereikbaar te zijn via uw telefoonnummer. Ik zal zo snel mogelijk contact met u opnemen. Houd uw telefoon in de gaten, u kunt gebeld worden door het nummer: (+31) 06 513 046 51.";
+            $result = "<b class='color';>U heeft aangevinkt bereikbaar te zijn via uw telefoonnummer.</b> Ik zal zo snel mogelijk contact met u opnemen. Houd uw telefoon in de gaten, u kunt gebeld worden door het nummer: <b class='color';>(+31) 06 513 046 51.</b>";
             $keuze = $_POST['voornaam'] . " wil bereikt worden via de telefoon";
         } elseif(isset($_POST['checkMail']) && !isset($_POST['checkTel'])){
-            $result = "U heeft aangevinkt bereikbaar te zijn via uw e-mail. Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail in de gaten, u kunt gemaild worden door het e-mailadres: pedicurepraktijksol@gmail.com ";
+            $result = "<b class='color';>U heeft aangevinkt bereikbaar te zijn via uw e-mail.</b> Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail in de gaten, u kunt gemaild worden door het e-mailadres:  <b class='color';>pedicurepraktijksol@gmail.com</b>";
             $keuze = $_POST['voornaam'] . " wil bereikt worden via de mail";
         } elseif(isset($_POST['checkMail']) && isset($_POST['checkTel'])){
-            $result = "U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer. Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail en telefoon in de gaten, u kunt gemaild worden door het e-mailadres: pedicurepraktijksol@gmail.com of gebeld worden door het nummer: (+31) 06 513 046 51.";
+            $result = "<b class='color';>U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer.</b> Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail en telefoon in de gaten, u kunt gemaild worden door het e-mailadres: <b class='color';>pedicurepraktijksol@gmail.com</b> of gebeld worden door het nummer: <b class='color';>(+31) 06 513 046 51.</b>";
             $keuze = $_POST['voornaam'] . " vind via de telefoon en mail beide prima om bereikt te worden.";
         }
         $from = "test@koenschutte.nl";
@@ -36,8 +36,7 @@ if (!empty($_POST['contact'])) {
         mail($to,$subject,$message, $headers);
     }
 }
-$result = "U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer. Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail en telefoon in de gaten, u kunt gemaild worden door het e-mailadres: pedicurepraktijksol@gmail.com of gebeld worden door het nummer: (+31) 06 513 046 51.";
-
+$result = "<b class='color';>U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer.</b> Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail en telefoon in de gaten, u kunt gemaild worden door het e-mailadres: <b class='color';>pedicurepraktijksol@gmail.com</b> of gebeld worden door het nummer: <b class='color';>(+31) 06 513 046 51.</b>";
 
 ?>
 
@@ -60,7 +59,12 @@ $result = "U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer
                             echo $errorMessage;
                         }
                         if(isset($result)){
-                            echo "<span style='margin: 5px'>$result</span>";
+                            ?>
+                            <div class="contact-message">
+                                <span><?php echo $result ?></span>
+                            </div>
+
+                            <?php
                         } else {
                             ?>
                             <input name="voornaam" type="text" placeholder="Voornaam" required>
