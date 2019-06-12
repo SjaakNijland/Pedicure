@@ -5,7 +5,7 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
 ?>
 <div class="container">
     <div class="page-banner">
-        <img src="img/banner.png">
+        <img src="img/tips.png">
         <div class="background-layer"></div>
     </div>
     <div class="wave-background">
