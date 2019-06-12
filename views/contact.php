@@ -19,13 +19,13 @@ if (!empty($_POST['contact'])) {
         $errorMessage = "Vul een geldig telefoonnummer in, alleen maar nummers toegestaan";
     } else{
         if(isset($_POST['checkTel']) && !isset($_POST['checkMail'])){
-            $result = "Je hebt de telefoon geslecteerd";
+            $result = "U heeft aangevinkt bereikbaar te zijn via uw telefoonnummer. Ik zal zo snel mogelijk contact met u opnemen. Houd uw telefoon in de gaten, u kunt gebeld worden door het nummer: (+31) 06 513 046 51.";
             $keuze = $_POST['voornaam'] . " wil bereikt worden via de telefoon";
         } elseif(isset($_POST['checkMail']) && !isset($_POST['checkTel'])){
-            $result = "Je hebt de mail geslecteerd";
+            $result = "U heeft aangevinkt bereikbaar te zijn via uw e-mail. Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail in de gaten, u kunt gemaild worden door het e-mailadres: pedicurepraktijksol@gmail.com ";
             $keuze = $_POST['voornaam'] . " wil bereikt worden via de mail";
         } elseif(isset($_POST['checkMail']) && isset($_POST['checkTel'])){
-            $result = "Je hebt beide geselecteerd";
+            $result = "U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer. Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail en telefoon in de gaten, u kunt gemaild worden door het e-mailadres: pedicurepraktijksol@gmail.com of gebeld worden door het nummer: (+31) 06 513 046 51.";
             $keuze = $_POST['voornaam'] . " vind via de telefoon en mail beide prima om bereikt te worden.";
         }
         $from = "test@koenschutte.nl";
@@ -36,17 +36,9 @@ if (!empty($_POST['contact'])) {
         mail($to,$subject,$message, $headers);
     }
 }
+$result = "U heeft aangevinkt bereikbaar te zijn via uw e-mail en telefoonnummer. Ik zal zo snel mogelijk contact met u opnemen. Houd uw e-mail en telefoon in de gaten, u kunt gemaild worden door het e-mailadres: pedicurepraktijksol@gmail.com of gebeld worden door het nummer: (+31) 06 513 046 51.";
 
-if(isset($errorMessage)){
-    echo $errorMessage;
-}
 
-?>
-
-<?php
-if(isset($result)){
-    echo $result;
-}
 ?>
 
 <div class="container">
@@ -63,13 +55,26 @@ if(isset($result)){
                     <p class="contact-info-content"><i class="fas fa-phone"></i> (+31) 06 513 046 51</p>
                     <p class="contact-info-content"><i class="fas fa-envelope"></i> pedicurepraktijksol@gmail.com</p>
                     <form method="post" class="contact-form">
-                        <input name="voornaam" type="text" placeholder="Voornaam" required>
-                        <input name="achternaam" type="text" placeholder="Achternaam" required>
-                        <input name="email" type="email" placeholder="Email" required>
-                        <input name="tel" type="tel" placeholder="Telefoon" required>
-                        <p class="check-row"><input id="check1" name="checkTel" type="checkbox" class="check" required>Ik ben bereikbaar via Telefoon</p>
-                        <p class="check-row"><input id="check2" name="checkMail" type="checkbox" class="check" value=" "required>Ik ben bereikbaar via mail</p>
-                        <input name="contact" type="submit" value="Verzenden" class="button">
+                        <?php
+                        if(isset($errorMessage)){
+                            echo $errorMessage;
+                        }
+                        if(isset($result)){
+                            echo "<span style='margin: 5px'>$result</span>";
+                        } else {
+                            ?>
+                            <input name="voornaam" type="text" placeholder="Voornaam" required>
+                            <input name="achternaam" type="text" placeholder="Achternaam" required>
+                            <input name="email" type="email" placeholder="Email">
+                            <input name="tel" type="tel" placeholder="Telefoon">
+                            <p class="check-row"><input id="check1" name="checkTel" type="checkbox" class="check"
+                                                        required>Ik ben bereikbaar via Telefoon</p>
+                            <p class="check-row"><input id="check2" name="checkMail" type="checkbox" class="check"
+                                                        value=" " required>Ik ben bereikbaar via mail</p>
+                            <input name="contact" type="submit" value="Verzenden" class="button">
+                            <?php
+                        }
+                        ?>
                     </form>
                     <p class="contact-info-title">Waar vind u pedicurepraktijk Sol?</p>
                     <p class="contact-info-second-title">Pedicurepraktijk Sol bevindt zich op 2 locaties</p>

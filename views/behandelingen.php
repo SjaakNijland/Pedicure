@@ -34,7 +34,7 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
                     </div>
                 </button>
                 <div class="panel">
-                    <div class="inherit" data-editable data-name="content[27]">
+                    <div data-editable data-name="content[27]">
                         <?php echo $content[5]['body']; ?>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
                     </div>
                 </div>
                 <button class="accordion">
-                    <div data-editable data-name="content[32]">
+                    <div class="inherit" data-editable data-name="content[32]">
                         <?php echo $content[10]['body']; ?>
                     </div>
                 </button>

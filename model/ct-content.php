@@ -10,13 +10,14 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($account->checkLoggedIn()){
     foreach ($_POST['content'] as $key => $value) {
 
-       $stmt = $pdo->prepare("SELECT * FROM content_body WHERE content_id = ?");
-       $stmt->execute([$key]);
-       $result2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
-       if(count($result2) == 1){
-           echo "\nZelfde row geupdate\n";
-           $pdo->prepare("UPDATE content_body SET body = ? WHERE content_id = ?")->execute([$value, $key]);
-       } else {
+        $stmt = $pdo->prepare("SELECT * FROM content_body WHERE content_id = ?");
+        $stmt->execute([$key]);
+        $result2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(count($result2) == 1){
+            echo "\nZelfde row geupdate\n";
+            echo "\n content id: $key \n";
+            $pdo->prepare("UPDATE content_body SET body = ? WHERE content_id = ?")->execute([$value, $key]);
+        } else {
 
             $stmt = $pdo->prepare("SELECT * FROM content_body WHERE body = ? AND content_id = ?");
             $stmt->execute([$value, $key]);
@@ -37,7 +38,7 @@ if ($account->checkLoggedIn()){
                 $pdo->prepare("UPDATE content SET body_id = ? WHERE `id` = ?")->execute([$pdo->lastInsertId(), $key]);
             }
 
-       }
+        }
 
     }
 }
