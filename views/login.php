@@ -69,12 +69,13 @@ if (!LOGGED_IN){
         <?php
     } elseif(isset($_GET['token'])){
 ?>
+            <br><br><br><br>
             <form method="post">
                 <input name="password" type="password" placeholder="Nieuw Wachtwoord">
                 <input name="password2" type="password" placeholder="Wachtwoord herhalen">
                 <input name="changeNewP" type="submit" value="Aanpassen">
             </form>
-
+            <br><br><br><br>
             <?php
             echo !empty($message) ? $message : null;
     } else{
