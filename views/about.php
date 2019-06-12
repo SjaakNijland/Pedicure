@@ -22,7 +22,6 @@ $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.
                     <div data-editable data-name="content[14]" class="layer-2 ct-img">
                         <?php echo $content[1]['body']; ?>
                     </div>
-<!--                    <img class="layer-2" src="img/about.jpg" alt="">-->
                 </div>
             </div>
             <div class="about-text">
