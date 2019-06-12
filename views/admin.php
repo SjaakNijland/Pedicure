@@ -13,86 +13,102 @@ if(LOGGED_IN){
 
     $content = $pdo->query("SELECT * FROM content JOIN content_body ON content_body.id=content.body_id WHERE name LIKE 'home%'")->fetchAll(PDO::FETCH_ASSOC);
     array_unshift($content, "");
-//var_dump($content);
     ?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a href="?logout">Uitloggen</a>
-<hr>
+    <div class="inner">
+      <div class="logout">
+          <a href="?logout" class="button">Uitloggen</a>
+      </div>
+      <hr>
     <h2 style="text-align: center">De reviews van de home aanpassen</h2>
 
-<div class="home-testimonials" style="width: 50%; margin-bottom: 50px">
-    <div class="slide1">
-        <div class="inner">
-            <div data-editable data-name="content[10]">
-                <?php echo $content[10]['body']; ?>
+    <?php
+    $xpath1 = new DOMXPath(@DOMDocument::loadHTML($content[13]['body']));
+    $src1 = $xpath1->evaluate("string(//img/@src)");
+    $xpath2 = new DOMXPath(@DOMDocument::loadHTML($content[14]['body']));
+    $src2 = $xpath2->evaluate("string(//img/@src)");
+    $xpath3 = new DOMXPath(@DOMDocument::loadHTML($content[15]['body']));
+    $src3 = $xpath3->evaluate("string(//img/@src)");
+    ?>
+
+<div class="home-testimonials">
+    <div class="admin-block">
+        <div class="slidefix" style="background-image: url('<?php echo $src1 ?>')">
+            <div class="inner">
+                <div data-editable data-name="content[10]">
+                    <?php echo $content[10]['body']; ?>
+                </div>
+            </div>
+        </div>
+        <div class="slidefix" style="background-image: url('<?php echo $src2 ?>')">
+            <div class="inner" data-editable data-name="content[11]">
+                <?php echo $content[11]['body']; ?>
+            </div>
+        </div>
+        <div class="slidefix" style="background-image: url('<?php echo $src3 ?>')">
+            <div class="inner" data-editable data-name="content[12]">
+                <?php echo $content[12]['body']; ?>
             </div>
         </div>
     </div>
-    <div class="slide2">
-        <div class="inner" data-editable data-name="content[11]">
-            <?php echo $content[11]['body']; ?>
-        </div>
-    </div>
-    <div class="slide3">
-        <div class="inner" data-editable data-name="content[12]">
-            <?php echo $content[12]['body']; ?>
-        </div>
-    </div>
-    <hr>
-    <div data-editable data-name="content[50]" class="admin-img">
-        <?php echo $content[13]['body']; ?>
-    </div>
-    <hr>
-    <div data-editable data-name="content[51]" class="admin-img">
-        <?php echo $content[14]['body']; ?>
-    </div>
-    <hr>
-    <div data-editable data-name="content[52]" class="admin-img">
-        <?php echo $content[15]['body']; ?>
-    </div>
-    <h2 style="color: black">Home img</h2>
-    <div data-editable data-name="content[53]" class="admin-img">
-        <?php echo $content[16]['body']; ?>
-    </div>
-    <hr>
-    <div data-editable data-name="content[54]" class="admin-img">
-        <?php echo $content[17]['body']; ?>
-    </div>
-    <hr>
-    <div data-editable data-name="content[55]" class="admin-img">
-        <?php echo $content[18]['body']; ?>
+
+    <div class="admin-block">
+      <div data-editable data-name="content[50]" class="admin-img">
+          <?php echo $content[13]['body']; ?>
+      </div>
+      <hr>
+      <div data-editable data-name="content[51]" class="admin-img">
+          <?php echo $content[14]['body']; ?>
+      </div>
+      <hr>
+      <div data-editable data-name="content[52]" class="admin-img">
+          <?php echo $content[15]['body']; ?>
+      </div>
     </div>
 </div>
-<hr>
-        <h2 style="text-align: center">Wachtwoord aanpassen</h2>
-        <form method="post">
-        <input name="password" type="password" placeholder="Nieuw Wachtwoord">
-        <input name="password2" type="password" placeholder="Wachtwoord herhalen">
-        <input name="test" type="submit" value="Aanpassen">
-        </form>
+<div class="admin-wide">
+    <div class="admin-block">
+        <h2 style="color: black">Home img</h2>
+        <div data-editable data-name="content[53]" class="admin-img">
+            <?php echo $content[16]['body']; ?>
+        </div>
+        <div data-editable data-name="content[54]" class="admin-img">
+            <?php echo $content[17]['body']; ?>
+        </div>
+        <div data-editable data-name="content[55]" class="admin-img">
+            <?php echo $content[18]['body']; ?>
+        </div>
+    </div>
+    <div class="admin-block">
+      <h2 style="text-align: center">Wachtwoord aanpassen</h2>
+      <form method="post">
+      <input name="password" type="password" placeholder="Nieuw Wachtwoord">
+      <input name="password2" type="password" placeholder="Wachtwoord herhalen">
+      <input name="test" type="submit" value="Aanpassen">
+      </form>
     <?php echo !empty($message) ? $message : null; ?>
-<br><br>
+    </div>
+  </div>
+</div>
 
     <style>
+    .slidefix{
+        box-shadow: inset 0 0 0 500px rgba(0, 0, 0, 0.4);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        background-size: cover;
+        padding: 50px 0;
+        height: 400px
+    }
+
         .admin-img img{
-            width: 25%;
+            width: 100%;
             height: auto;
             /*color: black;*/
         }
         .admin-img div{
             width: 200px;
         }
-
-        /*.ce-element--type-image{*/
-            /*width: 130px!important;*/
-            /*height: 100px!important;;*/
-        /*}*/
-
 
         /*Change password*/
         input[type=text], input[type=password] {
@@ -128,4 +144,6 @@ if(LOGGED_IN){
     </style>
 
 <?php
+} else {
+    redirect("login");
 }
