@@ -42,7 +42,7 @@ $result = "<b class='color';>U heeft aangevinkt bereikbaar te zijn via uw e-mail
 
 <div class="container">
     <div class="page-banner">
-        <img src="img/banner.png">
+        <img src="img/contact.png">
         <div class="background-layer"></div>
     </div>
     <div class="wave-background">
